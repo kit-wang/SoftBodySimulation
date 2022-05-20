@@ -9,5 +9,5 @@ We aim to create a soft-body simulation that will be user-interactive. Currently
 Prototype Doc: https://docs.google.com/document/d/1fxjyB0h9waOmrIgeP-NCQlTQRuPUszg51HvmOqhQXSA/edit?usp=sharing  
 
 ## UML Diagrams
-Prototype UML Diagram
-![Prototype UML Design][img/prototype_uml.png]
+### Prototype UML Diagram  
+![Prototype UML Design](img/uml_prototype.png)

@@ -1,6 +1,6 @@
 public class SoftBody {
-  private ArrayList<Vertex> vertices;
-  private ArrayList<Edge> edges;
+  private ArrayList<Vertex> vertices = new ArrayList<Vertex>();
+  private ArrayList<Edge> edges = new ArrayList<Edge>();
 
   public SoftBody(float x, float y, float z, float radius, float xVel, float yVel, float zVel) {
     float dist;
@@ -15,6 +15,12 @@ public class SoftBody {
           }
         }
       }
+    }
+  }
+  
+  public void display(){
+    for (int i = 0; i < vertices.size(); i++){
+      vertices.get(i).display();
     }
   }
 }

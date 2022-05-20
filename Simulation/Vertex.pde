@@ -20,4 +20,12 @@ public class Vertex {
 
     isBoundary = onBoundary;
   }
+  
+  public void display(){
+    if (isBoundary){
+      translate(xPosition, yPosition, zPosition);
+      sphere(VertexRadius);
+      translate(-xPosition, -yPosition, -zPosition);
+    }
+  }
 }

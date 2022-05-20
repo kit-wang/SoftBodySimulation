@@ -7,11 +7,9 @@ public class Vertex {
   private float yVelocity;
   private float zVelocity;
 
-  private float radius;
-
   private boolean isBoundary;
 
-  public Vertex(float x, float y, float z, float xVel, float yVel, float zVel, float rad, boolean onBoundary) {
+  public Vertex(float x, float y, float z, float xVel, float yVel, float zVel, boolean onBoundary) {
     xPosition = x;
     yPosition = y;
     zPosition = z;
@@ -20,7 +18,6 @@ public class Vertex {
     yVelocity = yVel;
     zVelocity = zVel;
 
-    radius = rad;
     isBoundary = onBoundary;
   }
 }

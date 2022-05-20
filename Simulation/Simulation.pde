@@ -1,3 +1,5 @@
+public static final float VertexRadius = 2;
+
 void setup(){
 }
 

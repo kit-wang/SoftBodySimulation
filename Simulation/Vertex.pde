@@ -23,4 +23,18 @@ public class Vertex {
     fill(0);
     translate(-xPosition, -yPosition, -zPosition);
   }
+
+  public float getX() {
+    return xPosition;
+  }
+  public float getY() {
+    return yPosition;
+  }
+  public float getZ() {
+    return zPosition;
+  }
+
+  public float distance(Vertex other) {
+    return dist(xPosition, yPosition, zPosition, other.getX(), other.getY(), other.getZ());
+  }
 }

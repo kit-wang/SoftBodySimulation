@@ -18,13 +18,15 @@ public class SoftBody {
         }
       }
     }
-    for (int i = 0; i < vertices.size(); i++){
-      for (int j = i+1; j < vertices.size(); j++){
+    for (int i = 0; i < vertices.size(); i++) {
+      for (int j = i+1; j < vertices.size(); j++) {
         edges.add(new Edge(vertices.get(i), vertices.get(j), vertices.get(i).distance(vertices.get(j))));
+      }
+    }
   }
-  
-  public void display(){
-    for (int i = 0; i < boundary.size(); i++){
+
+  public void display() {
+    for (int i = 0; i < boundary.size(); i++) {
       boundary.get(i).display();
     }
   }

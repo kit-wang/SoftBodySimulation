@@ -25,6 +25,7 @@ public class Vertex {
     if (isBoundary){
       translate(xPosition, yPosition, zPosition);
       sphere(VertexRadius);
+      fill(0);
       translate(-xPosition, -yPosition, -zPosition);
     }
   }

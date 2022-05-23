@@ -11,3 +11,8 @@ Prototype Doc: https://docs.google.com/document/d/1fxjyB0h9waOmrIgeP-NCQlTQRuPUs
 ## UML Diagrams
 ### Prototype UML Diagram  
 ![Prototype UML Design](img/uml_prototype.png)
+
+## Commit Log
+05/20 - Jacob:
+05/21 - Jacob:
+05/23 - Kitty:

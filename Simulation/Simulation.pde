@@ -3,6 +3,8 @@ static float SPRING_DAMPEN = 0.990;
 static float SPRING_CONSTANT = 0.015;
 static float GRAVITY = .35;
 static int mode = 0;
+static final int EDGE_MODE = 1;
+static final int VERTEX_MODE = 0;
 
 
 public int displayMode = 0;
@@ -23,4 +25,5 @@ void draw(){
 }
 
 void mouseClicked(){
+  
 }

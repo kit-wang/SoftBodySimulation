@@ -67,4 +67,10 @@ public class Vertex {
   public float distance(Vertex other) {
     return dist(xPosition, yPosition, zPosition, other.getX(), other.getY(), other.getZ());
   }
+  
+  public void move(){
+    xPosition+=xVelocity;
+    yPosition+=yVelocity;
+    zPosition+=zVelocity;
+  }
 }

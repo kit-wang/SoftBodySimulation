@@ -15,12 +15,14 @@ void setup(){
   frameRate(30);
   v1 = new Vertex(300, 300, 20, 0, 0, 0);
   v2 = new Vertex(200, 200, -20, 0, 0, 0);
-  e1 = new Edge(v1, v2, 100);
+  e1 = new Edge(v1, v2, 50);
 }
 
 void draw(){
   background(200);
   e1.pull();
+  v1.move();
+  v2.move();
   v1.display();
   v2.display();
   e1.display();

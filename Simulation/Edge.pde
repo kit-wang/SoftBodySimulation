@@ -25,7 +25,7 @@ public class Edge {
     float displacey = (firstV.getY() - secondV.getY()) ;
     float displacez = (firstV.getZ() - secondV.getZ()) ;
     firstV.setDX(SPRING_CONSTANT*(firstV.getDX()+displacex*force/firstV.distance(secondV)));
-    firstV.setDY(SPRING_CONSTANT*(firstV.getDY()+displacex*force/firstV.distance(secondV)));
-    firstV.setDZ(SPRING_CONSTANT*(firstV.getDZ()+displacex*force/firstV.distance(secondV)));
+    firstV.setDY(SPRING_CONSTANT*(firstV.getDY()+displacey*force/firstV.distance(secondV)));
+    firstV.setDZ(SPRING_CONSTANT*(firstV.getDZ()+displacez*force/firstV.distance(secondV)));
   }
 }

@@ -6,15 +6,20 @@ public class SoftBody {
 
   public SoftBody(float x, float y, float z, float radius, float xVel, float yVel, float zVel) {
     float distSq;
-    for (float i = x - radius; i < x + radius; i+=50) {
-      for (float j = y-radius; j < y+radius; j+=50) {
-        for (float k = z-radius; k < z+radius; k+=50) {
+    for (float i = x - radius; i < x + radius+1; i+=25) {
+      for (float j = y-radius; j < y+radius+1; j+=25) {
+        for (float k = z-radius; k < z+radius+1; k+=25) {
           distSq = (i-x)*(i-x) + (j-y)*(j-y) + (k-z)*(k-z);
-          if (sqrt(distSq) <= radius - sqrt(3)*radius) {
+          println(distSq);
+          println(i + ", " + j + ", " + k);
+          if (sqrt(distSq) <= radius -15*sqrt(3)+1) {
             vertices.add(new Vertex(i, j, k, xVel, yVel, zVel));
           } else if (sqrt(distSq) <= radius+1) {
+
             vertices.add(new Vertex(i, j, k, xVel, yVel, zVel));
             boundary.add(vertices.get(vertices.size() - 1));
+            println(distSq);
+            println(i + ", " + j + ", " + k);
           }
         }
       }

@@ -33,6 +33,36 @@ public class Vertex {
   public float getZ() {
     return zPosition;
   }
+  
+  public void setX(float x) {
+    xPosition = x;
+  }
+  public void setY(float y) {
+    yPosition = y;
+  }
+  public void setZ(float z) {
+    zPosition = z;
+  }
+  
+  public float getDX() {
+    return xVelocity;
+  }
+  public float getDY() {
+    return yVelocity;
+  }
+  public float getDZ() {
+    return zVelocity;
+  }
+  
+  public void setDX(float dx) {
+    xVelocity = dx;
+  }
+  public void setDY(float dy) {
+    yVelocity = dy;
+  }
+  public void setDZ(float dz) {
+    zVelocity = dz;
+  }
 
   public float distance(Vertex other) {
     return dist(xPosition, yPosition, zPosition, other.getX(), other.getY(), other.getZ());

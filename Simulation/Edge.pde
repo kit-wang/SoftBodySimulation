@@ -14,4 +14,14 @@ public class Edge{
   public void display(){
     line(firstV.getX(), firstV.getY(), firstV.getZ(), secondV.getX(), secondV.getY(), secondV.getZ());
   }
+  
+  public float getLength(){
+    return length;
+  }
+  
+  public void pull(){
+    float force = SPRING_CONSTANT*(firstV.distance(secondV) - length);
+    
+    
+  }
 }

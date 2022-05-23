@@ -15,6 +15,7 @@ void setup(){
 
 void draw(){
   background(200);
+  lights();
   for (int i = 0; i < bodies.size(); i++){
     bodies.get(i).display();
   }

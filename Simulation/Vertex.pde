@@ -68,6 +68,16 @@ public class Vertex {
     return dist(xPosition, yPosition, zPosition, other.getX(), other.getY(), other.getZ());
   }
   
+  public boolean detectVerticalWall() {
+    boolean check = !(xPosition <= 0 || xPosition >= width);
+    return check;
+  }
+  
+  public boolean detectHorizontalWall() {
+    boolean check = !(yPosition <= 0 || yPosition >= width);
+    return check;
+  }
+  
   public void move(){
     xPosition+=xVelocity;
     yPosition+=yVelocity;

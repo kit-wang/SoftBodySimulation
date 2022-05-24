@@ -74,7 +74,7 @@ public class Vertex {
   }
   
   public boolean detectHorizontalWall() {
-    boolean check = !(yPosition <= 0 || yPosition >= width);
+    boolean check = !(yPosition <= 0 || yPosition >= height);
     return check;
   }
   
@@ -84,6 +84,12 @@ public class Vertex {
     zPosition+=zVelocity;
     if (Gravity){
       yVelocity+=GRAVITY;
+    }
+    if (detectVerticalWall()) {
+      setDX(-1.0 * getDX());
+    }
+    if (detectHorizontalWall()) {
+      setDY(-1.0 * getDY());
     }
   }
 }

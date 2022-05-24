@@ -34,12 +34,12 @@ public class SoftBody {
   }
 
   public void display() {
-    if (mode == 0) {
+    if (mode == VERTEX_MODE) {
       for (int i = 0; i < boundary.size(); i++) {
         boundary.get(i).display();
       }
     }
-    if (mode == 1) {
+    if (mode == EDGE_MODE) {
       for (int j = 0; j < boundaryE.size(); j++) {
         boundaryE.get(j).display();
       }

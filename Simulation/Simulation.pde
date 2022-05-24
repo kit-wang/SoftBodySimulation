@@ -2,26 +2,22 @@ static float VertexRadius = 5;
 static float SPRING_DAMPEN = 0.990;
 static float SPRING_CONSTANT = 0.015;
 static float GRAVITY = .35;
-static int mode = 0;
+static int mode = VERTEX_MODE;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;
-
 
 public int displayMode = 0;
 public ArrayList<SoftBody> bodies = new ArrayList<SoftBody>();
 void setup(){
   size(600, 600, P3D);
   frameRate(30);
-  bodies.add(new SoftBody(300, 300, 0, 50, 0,0,0));
-  
+  bodies.add(new SoftBody(300, 300, 5, 50, 20, 40, 60));
 }
 
 void draw(){
   background(200);
-  for (int i = 0; i < bodies.size(); i++){
-    bodies.get(i).display();
-  }
-  
+  bodies.get(0).react();
+  bodies.get(0).display();
 }
 
 void mouseClicked(){

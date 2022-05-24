@@ -1,14 +1,14 @@
 static float VertexRadius = 5;
 static float SPRING_DAMPEN = 0.996;
 static float SPRING_CONSTANT = 0.015;
-static float GRAVITY = 1.5;
-static int mode = 1;
+static float GRAVITY = 0;
+static int mode = 0;
 public int displayMode = 0;
 public final static int VERTEX_MODE = 0;
 public final static int EDGE_MODE = 1;
-
 public ArrayList<SoftBody> bodies = new ArrayList<SoftBody>();
 public boolean Gravity = true;
+public color VColor = color(255);
 void setup(){
   size(600, 600, P3D);
   frameRate(30);
@@ -16,7 +16,7 @@ void setup(){
 }
 
 void draw(){
-  background(200);
+  background(100);
   bodies.get(0).react();
   bodies.get(0).display();
 }

@@ -18,10 +18,11 @@ public class Vertex {
   }
 
   public void display() {
-    translate(xPosition, yPosition, zPosition);
-    sphere(VertexRadius);
-    fill(0);
-    translate(-xPosition, -yPosition, -zPosition);
+    noStroke();
+    fill(VColor);
+    translate(0,0,zPosition);
+    circle(xPosition, yPosition, 3*VertexRadius);
+    translate(0,0,-zPosition);
   }
 
   public float getX() {

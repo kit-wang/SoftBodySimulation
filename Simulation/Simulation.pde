@@ -2,10 +2,9 @@ static float VertexRadius = 5;
 static float SPRING_DAMPEN = 0.996;
 static float SPRING_CONSTANT = 0.015;
 static float GRAVITY = 1.5;
-static int mode = 1;
-public int displayMode = 0;
-public final static int VERTEX_MODE = 0;
-public final static int EDGE_MODE = 1;
+static final int EDGE_MODE = 1;
+static final int VERTEX_MODE = 0;
+static int mode = EDGE_MODE;
 
 public ArrayList<SoftBody> bodies = new ArrayList<SoftBody>();
 public boolean Gravity = true;

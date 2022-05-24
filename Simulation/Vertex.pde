@@ -69,12 +69,28 @@ public class Vertex {
     return dist(xPosition, yPosition, zPosition, other.getX(), other.getY(), other.getZ());
   }
   
+  public boolean detectVerticalWall() {
+    boolean check = !(xPosition <= 0 || xPosition >= width);
+    return check;
+  }
+  
+  public boolean detectHorizontalWall() {
+    boolean check = !(yPosition <= 0 || yPosition >= height);
+    return check;
+  }
+  
   public void move(){
     xPosition+=xVelocity;
     yPosition+=yVelocity;
     zPosition+=zVelocity;
     if (Gravity){
       yVelocity+=GRAVITY;
+    }
+    if (detectVerticalWall()) {
+      setDX(-1.0 * getDX());
+    }
+    if (detectHorizontalWall()) {
+      setDY(-1.0 * getDY());
     }
   }
 }

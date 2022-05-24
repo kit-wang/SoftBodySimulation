@@ -72,5 +72,8 @@ public class Vertex {
     xPosition+=xVelocity;
     yPosition+=yVelocity;
     zPosition+=zVelocity;
+    if (Gravity){
+      yVelocity+=GRAVITY;
+    }
   }
 }

@@ -20,9 +20,9 @@ public class Vertex {
   public void display() {
     noStroke();
     fill(VColor);
-    translate(0,0,zPosition);
+    translate(0, 0, zPosition);
     circle(xPosition, yPosition, 3*VertexRadius);
-    translate(0,0,-zPosition);
+    translate(0, 0, -zPosition);
   }
 
   public float getX() {
@@ -34,7 +34,7 @@ public class Vertex {
   public float getZ() {
     return zPosition;
   }
-  
+
   public void setX(float x) {
     xPosition = x;
   }
@@ -44,7 +44,7 @@ public class Vertex {
   public void setZ(float z) {
     zPosition = z;
   }
-  
+
   public float getDX() {
     return xVelocity;
   }
@@ -54,7 +54,7 @@ public class Vertex {
   public float getDZ() {
     return zVelocity;
   }
-  
+
   public void setDX(float dx) {
     xVelocity = dx;
   }
@@ -68,28 +68,30 @@ public class Vertex {
   public float distance(Vertex other) {
     return dist(xPosition, yPosition, zPosition, other.getX(), other.getY(), other.getZ());
   }
-  
+
   public boolean detectVerticalWall() {
-    boolean check = !(xPosition <= 0 || xPosition >= width);
+    boolean check = (xPosition < 0 || xPosition > width);
     return check;
   }
-  
+
   public boolean detectHorizontalWall() {
-    boolean check = !(yPosition <= 0 || yPosition >= height);
+    boolean check = (yPosition < 0 || yPosition > height);
     return check;
   }
-  
-  public void move(){
+
+  public void move() {
     xPosition+=xVelocity;
     yPosition+=yVelocity;
     zPosition+=zVelocity;
-    if (Gravity){
+    if (Gravity) {
       yVelocity+=GRAVITY;
     }
     if (detectVerticalWall()) {
+      xPosition-=xVelocity;
       setDX(-1.0 * getDX());
     }
     if (detectHorizontalWall()) {
+      yPosition-=yVelocity;
       setDY(-1.0 * getDY());
     }
   }

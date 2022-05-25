@@ -24,7 +24,7 @@ public class SoftBody {
     Edge e;
     for (int i = 0; i < vertices.size(); i++) {
       for (int j = i+1; j < vertices.size(); j++) {
-        e = new Edge(vertices.get(i), vertices.get(j), vertices.get(i).distance(vertices.get(j)) +10);
+        e = new Edge(vertices.get(i), vertices.get(j), vertices.get(i).distance(vertices.get(j)));
         edges.add(e);
         if (boundary.contains(vertices.get(i)) && boundary.contains(vertices.get(j))) {
           boundaryE.add(e);

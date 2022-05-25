@@ -12,6 +12,7 @@ public class Edge {
   }
 
   public void display() {
+    stroke(0);
     line(firstV.getX(), firstV.getY(), firstV.getZ(), secondV.getX(), secondV.getY(), secondV.getZ());
   }
 

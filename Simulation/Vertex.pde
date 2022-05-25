@@ -70,12 +70,12 @@ public class Vertex {
   }
 
   public boolean detectVerticalWall() {
-    boolean check = (xPosition < 0 || xPosition > width);
+    boolean check = (xPosition < VertexRadius || xPosition > width);
     return check;
   }
 
   public boolean detectHorizontalWall() {
-    boolean check = (yPosition < 0 || yPosition > height);
+    boolean check = (yPosition < VertexRadius || yPosition > height);
     return check;
   }
 
@@ -87,10 +87,20 @@ public class Vertex {
       yVelocity+=GRAVITY;
     }
     if (detectVerticalWall()) {
-      setDX(-.8 * getDX());
+      if (xPosition > VertexRadius) {
+        xPosition = width-VertexRadius;
+      } else {
+        xPosition = VertexRadius;
+      }
+      setDX(-.7 * getDX());
     }
     if (detectHorizontalWall()) {
-      setDY(-.8 * getDY());
+      if (yPosition > VertexRadius) {
+        yPosition = height-VertexRadius;
+      } else {
+        yPosition = VertexRadius;
+      }
+      setDY(-.7 * getDY());
     }
   }
 }

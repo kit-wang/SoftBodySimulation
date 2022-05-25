@@ -21,6 +21,7 @@ public class Edge {
   }
 
   public void pull() {
+    
     float force = SPRING_CONSTANT*(firstV.distance(secondV) - length);
     float displacex = (firstV.getX() - secondV.getX()) ;
     float displacey = (firstV.getY() - secondV.getY()) ;
@@ -31,5 +32,16 @@ public class Edge {
     secondV.setDX(SPRING_DAMPEN*(secondV.getDX()+displacex*force/firstV.distance(secondV)));
     secondV.setDY(SPRING_DAMPEN*(secondV.getDY()+displacey*force/firstV.distance(secondV)));
     secondV.setDZ(SPRING_DAMPEN*(secondV.getDZ()+displacez*force/firstV.distance(secondV)));
+    if (firstV.distance(secondV) > 3*length) {
+      println(force);
+      stop = true;
+      println(firstV.getDX());
+      println(firstV.getDY());
+      println(firstV.getDZ());
+
+      println(secondV.getDX());
+      println(secondV.getDY());
+      println(secondV.getDZ());
+    }
   }
 }

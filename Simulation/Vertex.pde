@@ -87,12 +87,10 @@ public class Vertex {
       yVelocity+=GRAVITY;
     }
     if (detectVerticalWall()) {
-      xPosition-=xVelocity;
-      setDX(-1.0 * getDX());
+      setDX(-.8 * getDX());
     }
     if (detectHorizontalWall()) {
-      yPosition-=yVelocity;
-      setDY(-1.0 * getDY());
+      setDY(-.8 * getDY());
     }
   }
 }

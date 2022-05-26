@@ -13,6 +13,7 @@ public class Edge {
 
   public void display() {
     stroke(0);
+    //line from one endpoint to the other
     line(firstV.getX(), firstV.getY(), firstV.getZ(), secondV.getX(), secondV.getY(), secondV.getZ());
   }
 
@@ -21,7 +22,7 @@ public class Edge {
   }
 
   public void pull() {
-    //calculate force of the spring
+    //calculate force of the spring using equation F = kl
     float force = SPRING_CONSTANT*(firstV.distance(secondV) - length);
     
     //calculate differences in axial directions between the endpoints
@@ -30,6 +31,7 @@ public class Edge {
     float displacez = (firstV.getZ() - secondV.getZ()) ;
     
    //change velocities for each based on the force applied by the spring in each direction
+   //velocity for each direction gets changed by the force scaled by the proportion of the directional displacement out of the total distance
     firstV.setDX((firstV.getDX()-SPRING_DAMPEN*displacex*force/firstV.distance(secondV)));
     firstV.setDY((firstV.getDY()-SPRING_DAMPEN*displacey*force/firstV.distance(secondV)));
     firstV.setDZ((firstV.getDZ()-SPRING_DAMPEN*displacez*force/firstV.distance(secondV)));

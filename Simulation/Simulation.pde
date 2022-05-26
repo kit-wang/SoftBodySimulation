@@ -18,7 +18,7 @@ Boolean stop = false;
 void setup() {
   size(600, 600, P3D);
   frameRate(30);
-  bodies.add(new SoftBody(300, 300, 0, 50, 0, 0, 0));
+  bodies.add(new SoftBody(300, 300, 0, 50, 0, 30, 0));
   v1 = new Vertex(300, 300, 0, 10, 10, 0);
   v2 = new Vertex(200, 200, 0, 0, 0, 0);
   v3 = new Vertex(400, 200, 0, 0, 0, 0);

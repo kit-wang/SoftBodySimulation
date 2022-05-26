@@ -2,7 +2,6 @@ public class Vertex {
   private float xPosition;
   private float yPosition;
   private float zPosition;
-
   private float xVelocity;
   private float yVelocity;
   private float zVelocity;
@@ -18,12 +17,14 @@ public class Vertex {
   }
 
   public void display() {
-    translate(xPosition, yPosition, zPosition);
-    sphere(VertexRadius);
-    fill(0);
-    translate(-xPosition, -yPosition, -zPosition);
+    noStroke();
+    fill(VColor);
+    translate(0, 0, zPosition);
+    circle(xPosition, yPosition, VertexRadius*2);
+    translate(0, 0, -zPosition);
   }
 
+  /* Accessor methods for Vertex position components */
   public float getX() {
     return xPosition;
   }
@@ -33,7 +34,8 @@ public class Vertex {
   public float getZ() {
     return zPosition;
   }
-  
+
+  /*  Mutator methods for Vertex position components */
   public void setX(float x) {
     xPosition = x;
   }
@@ -43,7 +45,8 @@ public class Vertex {
   public void setZ(float z) {
     zPosition = z;
   }
-  
+
+  /* Accessor methods for Vertex velocity components */
   public float getDX() {
     return xVelocity;
   }
@@ -53,7 +56,8 @@ public class Vertex {
   public float getDZ() {
     return zVelocity;
   }
-  
+
+  /*  Mutator methods for Vertex velocity components */
   public void setDX(float dx) {
     xVelocity = dx;
   }
@@ -64,32 +68,56 @@ public class Vertex {
     zVelocity = dz;
   }
 
+  /* Calculates distance between two Vertex objects*/
   public float distance(Vertex other) {
     return dist(xPosition, yPosition, zPosition, other.getX(), other.getY(), other.getZ());
   }
-  
-  public boolean detectVerticalWall() {
-    boolean check = !(xPosition <= 0 || xPosition >= width);
-    return check;
+
+  public void reactXWall() {
+    if (xPosition < VertexRadius) {
+      xVelocity*=-.9;
+      xPosition = VertexRadius;
+    } 
+    else if (xPosition > width - VertexRadius) {
+      xVelocity*=-.9;
+      xPosition = abs(VertexRadius-width);
+    } 
+  }
+
+  public void reactYWall() {
+    if (yPosition < VertexRadius) {
+      yVelocity*=-.9;
+      yPosition = VertexRadius;
+    } 
+    else if (yPosition > height - VertexRadius) {
+      yVelocity*=-.9;
+      yPosition = abs(VertexRadius-height);
+    }
   }
   
-  public boolean detectHorizontalWall() {
-    boolean check = !(yPosition <= 0 || yPosition >= height);
-    return check;
+  public void reactZWall() {
+    if (zPosition < VertexRadius - 600) {
+      zVelocity*=-.9;
+      zPosition = VertexRadius -600;
+    } 
+    else if (xPosition > 600 - VertexRadius) {
+      xVelocity*=-.9;
+      xPosition = abs(VertexRadius-600);
+    }
   }
-  
-  public void move(){
+
+  public void move() {
+
+    if (Gravity) {
+      yVelocity+=GRAVITY;
+    }
+    
+    reactXWall();
+    reactYWall();
+    reactZWall();
+    
     xPosition+=xVelocity;
     yPosition+=yVelocity;
     zPosition+=zVelocity;
-    if (Gravity){
-      yVelocity+=GRAVITY;
-    }
-    if (detectVerticalWall()) {
-      setDX(-1.0 * getDX());
-    }
-    if (detectHorizontalWall()) {
-      setDY(-1.0 * getDY());
-    }
   }
 }

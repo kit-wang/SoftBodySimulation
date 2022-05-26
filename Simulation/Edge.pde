@@ -22,6 +22,7 @@ public class Edge {
 
   public void pull() {
     float force = SPRING_CONSTANT*(firstV.distance(secondV) - length);
+    
     float displacex = (firstV.getX() - secondV.getX()) ;
     float displacey = (firstV.getY() - secondV.getY()) ;
     float displacez = (firstV.getZ() - secondV.getZ()) ;

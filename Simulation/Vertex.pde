@@ -21,7 +21,7 @@ public class Vertex {
     noStroke();
     fill(VColor);
     translate(0, 0, zPosition);
-    circle(xPosition, yPosition, 3*VertexRadius);
+    circle(xPosition, yPosition, VertexRadius*2);
     translate(0, 0, -zPosition);
   }
 
@@ -80,28 +80,47 @@ public class Vertex {
   }
 
   public void move() {
-    
+
     if (Gravity) {
       yVelocity+=GRAVITY;
     }
-    if (detectVerticalWall()) {
-      if (xPosition > VertexRadius) {
-        xPosition = width-VertexRadius;
-      } else {
-        xPosition = VertexRadius;
-      }
-      setDX(-.2 * getDX());
+    //if (detectVerticalWall()) {
+    //  if (xPosition > VertexRadius) {
+    //    xPosition = width-VertexRadius;
+    //  } else {
+    //    xPosition = VertexRadius;
+    //  }
+    //  setDX(-.6 * getDX());
+    //}
+    //if (detectHorizontalWall()) {
+
+    //  if (yPosition > VertexRadius) {
+    //    yPosition = height-VertexRadius;
+    //  } else {
+    //    yPosition = VertexRadius;
+    //  }
+    //  setDY(-.6 * getDY());
+    //}
+    if (xPosition < VertexRadius) {
+      xVelocity*=-.9;
+      xPosition = VertexRadius;
+    } else if (xPosition > width - VertexRadius) {
+      xVelocity*=-.9;
+      xPosition = abs(VertexRadius-width);
+    } 
+    if (yPosition < VertexRadius) {
+      yVelocity*=-.9;
+      yPosition = VertexRadius;
+    } else if (yPosition > height - VertexRadius) {
+      yVelocity*=-.9;
+      yPosition = abs(VertexRadius-height);
     }
-    if (detectHorizontalWall()) {
-      println("boing");
-      
-      if (yPosition > VertexRadius) {
-        yPosition = height-VertexRadius;
-      } else {
-        yPosition = VertexRadius;
-      }
-      setDY(-.2 * getDY());
-      println(yVelocity);
+    if (zPosition < VertexRadius - 600) {
+      zVelocity*=-.9;
+      zPosition = VertexRadius -600;
+    } else if (xPosition > 600 - VertexRadius) {
+      xVelocity*=-.9;
+      xPosition = abs(VertexRadius-600);
     }
     xPosition+=xVelocity;
     yPosition+=yVelocity;

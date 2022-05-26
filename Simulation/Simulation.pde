@@ -1,7 +1,7 @@
 static float VertexRadius = 5;
-static float SPRING_DAMPEN = 0.990;
+static float SPRING_DAMPEN = 0.2;
 static float SPRING_CONSTANT = 0.15;
-static float GRAVITY = 1.5;
+static float GRAVITY = .35;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;
 static int mode = EDGE_MODE;
@@ -18,7 +18,7 @@ Boolean stop = false;
 void setup() {
   size(600, 600, P3D);
   frameRate(30);
-  bodies.add(new SoftBody(300, 300, 5, 50, 10, 10, 0));
+  bodies.add(new SoftBody(300, 300, 0, 50, 0, 0, 0));
   v1 = new Vertex(300, 300, 0, 10, 10, 0);
   v2 = new Vertex(200, 200, 0, 0, 0, 0);
   v3 = new Vertex(400, 200, 0, 0, 0, 0);
@@ -40,7 +40,7 @@ void draw() {
   //e1.pull();
   //e2.pull();
   //e3.pull();
-  //v1.display();
+  //1.display();
   //v2.display();
   //v3.display();
   //e1.display();

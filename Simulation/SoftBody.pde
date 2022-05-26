@@ -47,8 +47,6 @@ public class SoftBody {
   }
   
   public void react(){
-    
-    
     for(int i = 0; i < edges.size(); i++){
       edges.get(i).pull();
     }

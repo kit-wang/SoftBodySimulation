@@ -12,7 +12,7 @@ public class Edge {
   }
 
   public void display() {
-    stroke(0);
+    stroke((255.0/150.0)*(firstV.getZ()+secondV.getZ() + 150)*.5);
     //line from one endpoint to the other
     line(firstV.getX(), firstV.getY(), firstV.getZ(), secondV.getX(), secondV.getY(), secondV.getZ());
   }

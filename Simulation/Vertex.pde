@@ -80,9 +80,7 @@ public class Vertex {
   }
 
   public void move() {
-    xPosition+=xVelocity;
-    yPosition+=yVelocity;
-    zPosition+=zVelocity;
+    
     if (Gravity) {
       yVelocity+=GRAVITY;
     }
@@ -92,15 +90,21 @@ public class Vertex {
       } else {
         xPosition = VertexRadius;
       }
-      setDX(-.7 * getDX());
+      setDX(-.2 * getDX());
     }
     if (detectHorizontalWall()) {
+      println("boing");
+      
       if (yPosition > VertexRadius) {
         yPosition = height-VertexRadius;
       } else {
         yPosition = VertexRadius;
       }
-      setDY(-.7 * getDY());
+      setDY(-.2 * getDY());
+      println(yVelocity);
     }
+    xPosition+=xVelocity;
+    yPosition+=yVelocity;
+    zPosition+=zVelocity;
   }
 }

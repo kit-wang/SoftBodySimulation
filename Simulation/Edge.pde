@@ -33,16 +33,5 @@ public class Edge {
     secondV.setDX((secondV.getDX()+SPRING_DAMPEN*displacex*force/firstV.distance(secondV)));
     secondV.setDY((secondV.getDY()+SPRING_DAMPEN*displacey*force/firstV.distance(secondV)));
     secondV.setDZ((secondV.getDZ()+SPRING_DAMPEN*displacez*force/firstV.distance(secondV)));
-    if (firstV.distance(secondV) > 3*length) {
-      println(force);
-      stop = true;
-      println(firstV.getDX());
-      println(firstV.getDY());
-      println(firstV.getDZ());
-
-      println(secondV.getDX());
-      println(secondV.getDY());
-      println(secondV.getDZ());
-    }
   }
 }

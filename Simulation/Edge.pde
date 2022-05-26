@@ -21,12 +21,15 @@ public class Edge {
   }
 
   public void pull() {
+    //calculate force of the spring
     float force = SPRING_CONSTANT*(firstV.distance(secondV) - length);
     
+    //calculate differences in axial directions between the endpoints
     float displacex = (firstV.getX() - secondV.getX()) ;
     float displacey = (firstV.getY() - secondV.getY()) ;
     float displacez = (firstV.getZ() - secondV.getZ()) ;
     
+   //change velocities for each based on the force applied by the spring in each direction
     firstV.setDX((firstV.getDX()-SPRING_DAMPEN*displacex*force/firstV.distance(secondV)));
     firstV.setDY((firstV.getDY()-SPRING_DAMPEN*displacey*force/firstV.distance(secondV)));
     firstV.setDZ((firstV.getDZ()-SPRING_DAMPEN*displacez*force/firstV.distance(secondV)));

@@ -17,4 +17,7 @@ Prototype Doc: https://docs.google.com/document/d/1fxjyB0h9waOmrIgeP-NCQlTQRuPUs
 05/21 - Jacob: I added edges to the ball, connecting the vertices in the ball constructor.
 05/23 - Kitty:
 05/23 - Jacob: I added the physics to make the springs connecting the vertices pull and push, as intended.
+05/24 - Kitty: I attempted to implement wall interactions with the soft body that would prevent the soft body from exiting the screen; bugs still present with sliding somewhat past boundaries.  
 05/24 - Jacob: I attempted to fix some of the bugs resulting from the wall-interaction. I made some progress, but there is still some unwanted behavior when the ball hits a wall.  
+05/26 - Kitty: I worked on optimizing wall interaction methods, and resolved some bugs (one persisting bug with sticky top wall remaining).
+

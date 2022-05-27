@@ -78,9 +78,9 @@ public class Vertex {
       xVelocity*=-.9;
       xPosition = VertexRadius;
     }
-    else if (xPosition > width - VertexRadius) {
+    else if (xPosition > 600 - VertexRadius) {
       xVelocity*=-.9;
-      xPosition = abs(VertexRadius-width);
+      xPosition = abs(VertexRadius-600);
     }
   }
 
@@ -89,9 +89,9 @@ public class Vertex {
       yVelocity*=-.9;
       yPosition = VertexRadius;
     }
-    else if (yPosition > height - VertexRadius) {
+    else if (yPosition > 600 - VertexRadius) {
       yVelocity*=-.9;
-      yPosition = abs(VertexRadius-height);
+      yPosition = abs(VertexRadius-600);
     }
   }
 

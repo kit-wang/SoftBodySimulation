@@ -18,30 +18,27 @@ Edge e3;
 
 
 void setup() {
-  size(600, 600, P3D);
+  size(800, 800, P3D);
   frameRate(30);
 
   v1 = new Vertex(300, 300, 0, 0, 50, 0);
   //bodies.add(new SoftBody(300, 300, 0, 100, 0, 50, 0));
 
   bodies.add(new SoftBody(300, 300, 0, 50, 0, 15, 0));
-  v1 = new Vertex(300, 300, 0, 10, 10, 0);
-  v2 = new Vertex(200, 200, 0, 0, 0, 0);
-  v3 = new Vertex(400, 200, 0, 0, 0, 0);
-  e1 = new Edge(v1, v2, 141);
-  e2 = new Edge(v1, v3, 141);
-  e3 = new Edge(v2, v3, 141);
+  //v1 = new Vertex(300, 300, 0, 10, 10, 0);
+  //v2 = new Vertex(200, 200, 0, 0, 0, 0);
+  //v3 = new Vertex(400, 200, 0, 0, 0, 0);
+  //e1 = new Edge(v1, v2, 141);
+  //e2 = new Edge(v1, v3, 141);
+  //e3 = new Edge(v2, v3, 141);
 }
 
 void draw() {
   background(250);
-  /*if (!stop) {
-   background(250);
+  if (!stop) {
    bodies.get(0).react();
    bodies.get(0).display();
-   }*/
-  v1.move();
-  v1.display();
+   }
 }
 
 void mouseClicked() {

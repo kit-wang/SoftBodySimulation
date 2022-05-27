@@ -74,24 +74,24 @@ public class Vertex {
   }
 
   public void reactXWall() {
-    if (xPosition < VertexRadius) {
+    if (xPosition < VertexRadius+100) {
       xVelocity*=-.9;
-      xPosition = VertexRadius;
+      xPosition = VertexRadius+100;
     }
-    else if (xPosition > 600 - VertexRadius) {
+    else if (xPosition > 700 - VertexRadius) {
       xVelocity*=-.9;
-      xPosition = abs(VertexRadius-600);
+      xPosition = abs(VertexRadius-700);
     }
   }
 
   public void reactYWall() {
-    if (yPosition < VertexRadius) {
+    if (yPosition < 100+VertexRadius) {
       yVelocity*=-.9;
-      yPosition = VertexRadius;
+      yPosition = VertexRadius+100;
     }
-    else if (yPosition > 600 - VertexRadius) {
+    else if (yPosition > 700 - VertexRadius) {
       yVelocity*=-.9;
-      yPosition = abs(VertexRadius-600);
+      yPosition = abs(VertexRadius-700);
     }
   }
 

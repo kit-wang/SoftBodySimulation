@@ -9,20 +9,24 @@ public ArrayList<SoftBody> bodies = new ArrayList<SoftBody>();
 public boolean Gravity = true;
 public color VColor = color(0);
 Boolean stop = false;
+Vertex v1;
 
 void setup() {
   size(600, 600, P3D);
   frameRate(30);
-  bodies.add(new SoftBody(300, 300, 0, 100, 0, 0, 0));
+  v1 = new Vertex(300, 300, 0, 0, 50, 0);
+  //bodies.add(new SoftBody(300, 300, 0, 100, 0, 50, 0));
 }
 
 void draw() {
   background(250);
-  if (!stop) {
+  /*if (!stop) {
     background(250);
     bodies.get(0).react();
     bodies.get(0).display();
-  }
+  }*/
+  v1.move();
+  v1.display();
 }
 
 void mouseClicked() {

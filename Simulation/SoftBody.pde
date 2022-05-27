@@ -6,12 +6,16 @@ public class SoftBody {
 
   public SoftBody(float x, float y, float z, float radius, float xVel, float yVel, float zVel) {
     float distSq;
-    for (float i = x - radius; i < x + radius+1; i+=25) {
-      for (float j = y-radius; j < y+radius+1; j+=25) {
-        for (float k = z-radius; k < z+radius+1; k+=25) {
+    //loop over every position in the box centered at the body's center with side length 2*radius
+    for (float i = x - radius; i < x + radius+1; i+=50) {
+      for (float j = y-radius; j < y+radius+1; j+=50) {
+        for (float k = z-radius; k < z+radius+1; k+=50) {
+          //find the square of the distance from the position to the center
           distSq = (i-x)*(i-x) + (j-y)*(j-y) + (k-z)*(k-z);
-          if (sqrt(distSq) <= radius -15*sqrt(3)+1) {
+          //see if distance is within the ball, but not near the boundary, and add to the ArrayList of vertices
+          if (sqrt(distSq) <= radius -50*sqrt(3)+1) {
             vertices.add(new Vertex(i, j, k, xVel, yVel, zVel));
+            //otherwise if point is within the ball, but on the boundary, we add to the ArrayList
           } else if (sqrt(distSq) <= radius+1) {
 
             vertices.add(new Vertex(i, j, k, xVel, yVel, zVel));

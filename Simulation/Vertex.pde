@@ -82,7 +82,7 @@ public class Vertex {
   public void move() {
 
     if (Gravity) {
-      yVelocity+=GRAVITY;
+      setDY(getDY()+GRAVITY);
     }
     //if (detectVerticalWall()) {
     //  if (xPosition > VertexRadius) {

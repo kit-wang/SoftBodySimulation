@@ -13,8 +13,9 @@ Prototype Doc: https://docs.google.com/document/d/1fxjyB0h9waOmrIgeP-NCQlTQRuPUs
 ![Prototype UML Design](img/uml_prototype.png)
 
 ## Commit Log
-05/20 - Jacob: I made constructors and instance variables for the main classes, including the for loop to create the vertices in the ball.
-05/21 - Jacob: I added edges to the ball, connecting the vertices in the ball constructor.
-05/23 - Kitty:
-05/23 - Jacob: I added the physics to make the springs connecting the vertices pull and push, as intended.
+05/20 - Jacob: I made constructors and instance variables for the main classes, including the for loop to create the vertices in the ball.  
+05/21 - Jacob: I added edges to the ball, connecting the vertices in the ball constructor.  
+05/23 - Kitty: I started initializing wall interactions with the soft body; vertex bug remains unresolved  
+05/23 - Jacob: I added the physics to make the springs connecting the vertices pull and push, as intended.  
+05/23 - Kitty: I added the gravity interaction elements  
 05/24 - Jacob: I attempted to fix some of the bugs resulting from the wall-interaction. I made some progress, but there is still some unwanted behavior when the ball hits a wall.  

@@ -29,7 +29,9 @@ public class SoftBody {
     for (int i = 0; i < vertices.size(); i++) {
       for (int j = i+1; j < vertices.size(); j++) {
         e = new Edge(vertices.get(i), vertices.get(j), vertices.get(i).distance(vertices.get(j)));
-        edges.add(e);
+        if (e.getLength() <= 25*sqrt(3)) {
+          edges.add(e);
+        }
         if (boundary.contains(vertices.get(i)) && boundary.contains(vertices.get(j))) {
           boundaryE.add(e);
         }
@@ -49,12 +51,12 @@ public class SoftBody {
       }
     }
   }
-  
-  public void react(){
-    for(int i = 0; i < edges.size(); i++){
+
+  public void react() {
+    for (int i = 0; i < edges.size(); i++) {
       edges.get(i).pull();
     }
-    for (int i = 0; i < vertices.size(); i++){
+    for (int i = 0; i < vertices.size(); i++) {
       vertices.get(i).move();
     }
   }

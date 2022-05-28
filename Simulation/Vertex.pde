@@ -77,10 +77,12 @@ public class Vertex {
     if (xPosition < VertexRadius+100) {
       xVelocity*=-.9;
       xPosition = VertexRadius+100;
+
     }
     else if (xPosition > 700 - VertexRadius) {
       xVelocity*=-.9;
       xPosition = abs(VertexRadius-700);
+
     }
   }
 
@@ -88,10 +90,12 @@ public class Vertex {
     if (yPosition < 100+VertexRadius) {
       yVelocity*=-.9;
       yPosition = VertexRadius+100;
+
     }
     else if (yPosition > 700 - VertexRadius) {
       yVelocity*=-.9;
       yPosition = abs(VertexRadius-700);
+
     }
   }
 
@@ -99,10 +103,12 @@ public class Vertex {
     if (zPosition < VertexRadius - 300) {
       zVelocity*=-.9;
       zPosition = VertexRadius -300;
+
     }
-    else if (xPosition > 300 - VertexRadius) {
-      xVelocity*=-.9;
-      xPosition = abs(VertexRadius-300);
+    else if (zPosition > 300 - VertexRadius) {
+      zVelocity*=-.9;
+      zPosition = abs(VertexRadius-300);
+
     }
   }
 

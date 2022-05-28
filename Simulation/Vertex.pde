@@ -100,14 +100,14 @@ public class Vertex {
   }
 
   public void reactZWall() {
-    if (zPosition < VertexRadius - 300) {
+    if (zPosition < VertexRadius - 150) {
       zVelocity*=-.9;
-      zPosition = VertexRadius -300;
+      zPosition = VertexRadius -150;
 
     }
-    else if (zPosition > 300 - VertexRadius) {
+    else if (zPosition > 150 - VertexRadius) {
       zVelocity*=-.9;
-      zPosition = abs(VertexRadius-300);
+      zPosition = abs(VertexRadius-150);
 
     }
   }

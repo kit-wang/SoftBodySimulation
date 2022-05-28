@@ -19,12 +19,12 @@ Edge e3;
 
 void setup() {
   size(800, 800, P3D);
-  frameRate(30);
+  frameRate(10);
 
   //v1 = new Vertex(300, 300, 0, 0, 50, 0);
   //bodies.add(new SoftBody(300, 300, 0, 100, 0, 50, 0));
 
-  bodies.add(new SoftBody(400, 400, 0, 50, 0, 15, 0));
+  bodies.add(new SoftBody(400, 400, 0, 50, 30, 15, 1));
   //v1 = new Vertex(300, 300, 0, 10, 10, 0);
   //v2 = new Vertex(200, 200, 0, 0, 0, 0);
   //v3 = new Vertex(400, 200, 0, 0, 0, 0);
@@ -35,6 +35,7 @@ void setup() {
 
 void draw() {
   background(250);
+  stroke(0);
   line(700, 100, -150, 700, 700, -150);
   line(700, 700, -150, 100, 700, -150);
   line(100, 100, -150, 700, 100, -150);

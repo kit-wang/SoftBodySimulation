@@ -19,5 +19,7 @@ Prototype Doc: https://docs.google.com/document/d/1fxjyB0h9waOmrIgeP-NCQlTQRuPUs
 05/23 - Jacob: I added the physics to make the springs connecting the vertices pull and push, as intended.  
 05/24 - Kitty: I attempted to implement wall interactions with the soft body that would prevent the soft body from exiting the screen; bugs still present with sliding somewhat past boundaries.  
 05/24 - Jacob: I attempted to fix some of the bugs resulting from the wall-interaction. I made some progress, but there is still some unwanted behavior when the ball hits a wall.  
+05/25 - Jacob: fixed the explosions that occurred from wall interaction thought changing constants and dampening impact with wall.
+05/26 - Jacob: I changed the edge display method to improve perspective, by making edges darker as they go deeper into the screen.
 05/26 - Kitty: I worked on optimizing wall interaction methods, and resolved some bugs (one persisting bug with sticky top wall remaining).  
-
+05/27 - Jacob: I added lines to create a frame of reference, in order to better view the 3-d nature of the object. I also reduced the connections, making the running more efficient. 

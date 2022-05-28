@@ -7,13 +7,13 @@ public class SoftBody {
   public SoftBody(float x, float y, float z, float radius, float xVel, float yVel, float zVel) {
     float distSq;
     //loop over every position in the box centered at the body's center with side length 2*radius
-    for (float i = x - radius; i < x + radius+1; i+=50) {
-      for (float j = y-radius; j < y+radius+1; j+=50) {
-        for (float k = z-radius; k < z+radius+1; k+=50) {
+    for (float i = x - radius; i < x + radius+1; i+=25) {
+      for (float j = y-radius; j < y+radius+1; j+=25) {
+        for (float k = z-radius; k < z+radius+1; k+=25) {
           //find the square of the distance from the position to the center
           distSq = (i-x)*(i-x) + (j-y)*(j-y) + (k-z)*(k-z);
           //see if distance is within the ball, but not near the boundary, and add to the ArrayList of vertices
-          if (sqrt(distSq) <= radius -50*sqrt(3)+1) {
+          if (sqrt(distSq) <= radius -25*sqrt(3)+1) {
             vertices.add(new Vertex(i, j, k, xVel, yVel, zVel));
             //otherwise if point is within the ball, but on the boundary, we add to the ArrayList
           } else if (sqrt(distSq) <= radius+1) {
@@ -29,7 +29,9 @@ public class SoftBody {
     for (int i = 0; i < vertices.size(); i++) {
       for (int j = i+1; j < vertices.size(); j++) {
         e = new Edge(vertices.get(i), vertices.get(j), vertices.get(i).distance(vertices.get(j)));
-        edges.add(e);
+        if (e.getLength() <= 25*sqrt(3)) {
+          edges.add(e);
+        }
         if (boundary.contains(vertices.get(i)) && boundary.contains(vertices.get(j))) {
           boundaryE.add(e);
         }
@@ -49,12 +51,12 @@ public class SoftBody {
       }
     }
   }
-  
-  public void react(){
-    for(int i = 0; i < edges.size(); i++){
+
+  public void react() {
+    for (int i = 0; i < edges.size(); i++) {
       edges.get(i).pull();
     }
-    for (int i = 0; i < vertices.size(); i++){
+    for (int i = 0; i < vertices.size(); i++) {
       vertices.get(i).move();
     }
   }

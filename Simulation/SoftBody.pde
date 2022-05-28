@@ -3,6 +3,8 @@ public class SoftBody {
   private ArrayList<Edge> edges = new ArrayList<Edge>();
   private ArrayList<Vertex> boundary = new ArrayList<Vertex>();
   private ArrayList<Edge> boundaryE = new ArrayList<Edge>();
+  public float zAvg;
+  private float zCounter;
 
   public SoftBody(float x, float y, float z, float radius, float xVel, float yVel, float zVel) {
     float distSq;
@@ -28,7 +30,7 @@ public class SoftBody {
     Edge e;
     for (int i = 0; i < vertices.size(); i++) {
       for (int j = i+1; j < vertices.size(); j++) {
-        e = new Edge(vertices.get(i), vertices.get(j), vertices.get(i).distance(vertices.get(j)));
+        e = new Edge(vertices.get(i), vertices.get(j), vertices.get(i).distance(vertices.get(j)), this);
         if (e.getLength() <= 25*sqrt(3)) {
           edges.add(e);
         }
@@ -56,8 +58,11 @@ public class SoftBody {
     for (int i = 0; i < edges.size(); i++) {
       edges.get(i).pull();
     }
+    zCounter = 0;
     for (int i = 0; i < vertices.size(); i++) {
       vertices.get(i).move();
+      zCounter+=vertices.get(i).getZ();
     }
+    zAvg = zCounter/vertices.size();
   }
 }

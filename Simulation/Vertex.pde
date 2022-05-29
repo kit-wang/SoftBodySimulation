@@ -111,8 +111,22 @@ public class Vertex {
 
     }
   }
+  
+  public void reactDiag1() {
+    if (xPosition > 300 && abs(xPosition + yPosition - 800)/sqrt(2) < VertexRadius){
+      if (xVelocity < yVelocity){
+        
+      }else{
+        
+      }
+      float hold = yVelocity;
+      yVelocity = -xVelocity;
+      xVelocity = -hold;
+    }
+  }
 
   public void move() {
+    
 
     if (Gravity) {
       yVelocity+=GRAVITY;
@@ -121,6 +135,8 @@ public class Vertex {
     reactXWall();
     reactYWall();
     reactZWall();
+    reactDiag1();
+    println(xPosition + yPosition - 800);
 
     xPosition+=xVelocity;
     yPosition+=yVelocity;

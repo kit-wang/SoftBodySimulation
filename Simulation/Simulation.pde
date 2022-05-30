@@ -21,7 +21,7 @@ void setup() {
   size(800, 800, P3D);
   frameRate(10);
 
-  //v1 = new Vertex(300, 300, 0, 0, 50, 0);
+  v1 = new Vertex(300, 300, 0, 10, 0, 0);
   //bodies.add(new SoftBody(300, 300, 0, 100, 0, 50, 0));
 
   bodies.add(new SoftBody(400, 400, 0, 50, 30, 15, 1));
@@ -49,10 +49,13 @@ void draw() {
   line(700, 700, -150, 700, 700, 150);
   line(700, 100, -150, 700, 100, 150);
   line(100, 700, -150, 100, 700, 150);
-  if (!stop) {
-    bodies.get(0).react();
-    bodies.get(0).display();
-  }
+  line(300, 500, 0, 700, 100, 0);
+  //if (!stop) {
+  //  bodies.get(0).react();
+  //  bodies.get(0).display();
+  //}
+  v1.move();
+  v1.display();
 }
 
 void mouseClicked() {

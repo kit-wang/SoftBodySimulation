@@ -22,4 +22,6 @@ Prototype Doc: https://docs.google.com/document/d/1fxjyB0h9waOmrIgeP-NCQlTQRuPUs
 05/25 - Jacob: fixed the explosions that occurred from wall interaction thought changing constants and dampening impact with wall.
 05/26 - Jacob: I changed the edge display method to improve perspective, by making edges darker as they go deeper into the screen.
 05/26 - Kitty: I worked on optimizing wall interaction methods, and resolved some bugs (one persisting bug with sticky top wall remaining).  
-05/27 - Jacob: I added lines to create a frame of reference, in order to better view the 3-d nature of the object. I also reduced the connections, making the running more efficient. 
+05/27 - Jacob: I added lines to create a frame of reference, in order to better view the 3-d nature of the object. I also reduced the connections, making the running more efficient.
+05/28 - Jacob: I further improved the edge displays to make the shading with respect to the average z-coordinate of the ball, rather than the z-coordinate in general. I started the coding for diagonal walls.
+05/28 - I got working diagonal walls, with decent bouncing behavior. 

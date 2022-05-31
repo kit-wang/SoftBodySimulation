@@ -25,4 +25,5 @@ https://docs.google.com/document/d/1UYKS9-Bp7HBw1WUIw0KsM1lXloKazP6HbpHPUF0QfC0/
 05/26 - Kitty: I worked on optimizing wall interaction methods, and resolved some bugs (one persisting bug with sticky top wall remaining).   
 05/27 - Jacob: I added lines to create a frame of reference, in order to better view the 3-d nature of the object. I also reduced the connections, making the running more efficient.  
 05/28 - Jacob: I further improved the edge displays to make the shading with respect to the average z-coordinate of the ball, rather than the z-coordinate in general. I started the coding for diagonal walls.  
-05/28 - I got working diagonal walls, with decent bouncing behavior. 
+05/29 - Jacob: I got working diagonal walls, with decent bouncing behavior.
+05/30 - Jacob: I refined the look of the ball by adding more points in the ball. i also tried, unsuccesfully, to create another diagonal wall in a different location with different orientation. 

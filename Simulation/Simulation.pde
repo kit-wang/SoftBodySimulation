@@ -25,11 +25,8 @@ void setup() {
   v1 = new Vertex(300, 300, 0, 10, 0, 0);
   //bodies.add(new SoftBody(300, 300, 0, 100, 0, 50, 0));
 
-<<<<<<< HEAD
-  bodies.add(new SoftBody(400, 200, 0, 50, 10, 5, 0));
-=======
+
   bodies.add(new SoftBody(600, 200, 0, 50, 5, 5, 0));
->>>>>>> 36a0fa4d3193437d3b54f77e713d29a94803fe75
   //v1 = new Vertex(300, 300, 0, 10, 10, 0);
   //v2 = new Vertex(200, 200, 0, 0, 0, 0);
   //v3 = new Vertex(400, 200, 0, 0, 0, 0);

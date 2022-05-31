@@ -15,16 +15,17 @@ Vertex v3;
 Edge e1;
 Edge e2;
 Edge e3;
+int i = -150;
 
 
 void setup() {
-  size(800, 800, P3D);
-  frameRate(30);
 
+  size(800, 800, P3D);
+  frameRate(20);
   v1 = new Vertex(300, 300, 0, 10, 0, 0);
   //bodies.add(new SoftBody(300, 300, 0, 100, 0, 50, 0));
 
-  bodies.add(new SoftBody(600, 200, 0, 50, 10, 5, 0));
+  bodies.add(new SoftBody(400, 200, 0, 50, 10, 5, 0));
   //v1 = new Vertex(300, 300, 0, 10, 10, 0);
   //v2 = new Vertex(200, 200, 0, 0, 0, 0);
   //v3 = new Vertex(400, 200, 0, 0, 0, 0);
@@ -49,9 +50,10 @@ void draw() {
   line(700, 700, -150, 700, 700, 150);
   line(700, 100, -150, 700, 100, 150);
   line(100, 700, -150, 100, 700, 150);
-  for (int i = -150; i <= 150; i+=10){
-    line(400, 500, i, 700, 200, i);
+  for (int i = -150; i <= 150; i+=10) {
+    line(450, 400, i, 700, 150, i);
   }
+  
   if (!stop) {
     bodies.get(0).react();
     bodies.get(0).display();

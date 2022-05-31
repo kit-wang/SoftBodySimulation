@@ -113,9 +113,9 @@ public class Vertex {
   }
   
   public void reactDiag1() {
-    float dist = (xPosition + yPosition - 900)/sqrt(2);
-    float prevDist = (xPosition - xVelocity + yPosition - yVelocity - 900)/sqrt(2);
-    if (xPosition > 400 && dist*prevDist < 0){
+    float dist = (xPosition + yPosition - 850)/sqrt(2);
+    float prevDist = (xPosition - xVelocity + yPosition - yVelocity - 850)/sqrt(2);
+    if (xPosition > 450 && dist*prevDist < 0){
       //if (xVelocity < yVelocity){
       //  xPosition += dist/sqrt(2) - 2*VertexRadius/sqrt(2);
       //  yPosition += dist/sqrt(2) - 2*VertexRadius/sqrt(2);
@@ -130,6 +130,25 @@ public class Vertex {
       xVelocity = -hold;
     }
   }
+  
+  //public void reactDiag2() {
+  //  float dist = (-xPosition + yPosition - 200)/sqrt(2);
+  //  float prevDist = (- xPosition + xVelocity + yPosition - yVelocity - 200)/sqrt(2);
+  //  if (xPosition < 300 && dist*prevDist < 0){
+  //    //if (xVelocity < yVelocity){
+  //    //  xPosition += dist/sqrt(2) - 2*VertexRadius/sqrt(2);
+  //    //  yPosition += dist/sqrt(2) - 2*VertexRadius/sqrt(2);
+  //    //}else{
+  //    //  xPosition -= dist/sqrt(2) - 2*VertexRadius/sqrt(2);
+  //    //  yPosition -= dist/sqrt(2) - 2*VertexRadius/sqrt(2);
+  //    //}
+  //    xPosition-= xVelocity;
+  //    yPosition-=yVelocity;
+  //    float hold = yVelocity;
+  //    yVelocity = xVelocity;
+  //    xVelocity = hold;
+  //  }
+  //}
 
   public void move() {
     

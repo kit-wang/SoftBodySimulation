@@ -13,7 +13,7 @@ Boolean stop = false;
 
 void setup() {
   size(800, 800, P3D);
-  frameRate(20);
+  frameRate(30);
   bodies.add(new SoftBody(600, 200, 0, 50, 5, 5, 0));
 }
 

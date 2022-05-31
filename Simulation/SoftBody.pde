@@ -9,9 +9,9 @@ public class SoftBody {
   public SoftBody(float x, float y, float z, float radius, float xVel, float yVel, float zVel) {
     float distSq;
     //loop over every position in the box centered at the body's center with side length 2*radius
-    for (float i = x - radius; i < x + radius+1; i+=10) {
-      for (float j = y-radius; j < y+radius+1; j+=10) {
-        for (float k = z-radius; k < z+radius+1; k+=10) {
+    for (float i = x - radius; i < x + radius+1; i+=15) {
+      for (float j = y-radius; j < y+radius+1; j+=15) {
+        for (float k = z-radius; k < z+radius+1; k+=15) {
           //find the square of the distance from the position to the center
           distSq = (i-x)*(i-x) + (j-y)*(j-y) + (k-z)*(k-z);
           //see if distance is within the ball, but not near the boundary, and add to the ArrayList of vertices
@@ -30,7 +30,7 @@ public class SoftBody {
     Edge e;
     for (int i = 0; i < vertices.size(); i++) {
       for (int j = i+1; j < vertices.size(); j++) {
-        e = new Edge(vertices.get(i), vertices.get(j), vertices.get(i).distance(vertices.get(j)), this);
+        e = new Edge(vertices.get(i), vertices.get(j), vertices.get(i).distance(vertices.get(j))-1, this);
         if (e.getLength() <= 25*sqrt(3)) {
           edges.add(e);
         }

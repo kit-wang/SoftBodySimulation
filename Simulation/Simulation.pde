@@ -11,16 +11,11 @@ public color VColor = color(0);
 Boolean stop = false;
 
 
-<<<<<<< HEAD
+
 
 void setup() {
   size(800, 800, P3D);
   frameRate(30);
-=======
-void setup() {
-  size(800, 800, P3D);
-  frameRate(20);
->>>>>>> demo
   bodies.add(new SoftBody(600, 200, 0, 50, 5, 5, 0));
 }
 
@@ -40,17 +35,10 @@ void draw() {
   line(700, 700, -150, 700, 700, 150);
   line(700, 100, -150, 700, 100, 150);
   line(100, 700, -150, 100, 700, 150);
-<<<<<<< HEAD
   for (int i = -150; i <= 150; i+=2) {
     line(400, 500, i, 700, 200, i);
     line(100, 300, i, 400, 600, i);
   }
-
-=======
-  for (int i = -150; i <= 150; i+=10) {
-    line(400, 500, i, 700, 200, i);
-  }
->>>>>>> demo
   if (!stop) {
     bodies.get(0).react();
     bodies.get(0).display();

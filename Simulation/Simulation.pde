@@ -1,6 +1,6 @@
 static float VertexRadius = 5;
 static float SPRING_DAMPEN = 0.1;
-static float SPRING_CONSTANT = 0.15;
+static float SPRING_CONSTANT = 0.05;
 static float GRAVITY = .35;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;

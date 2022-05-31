@@ -42,5 +42,12 @@ public class Edge {
     secondV.setDX((secondV.getDX()+SPRING_DAMPEN*displacex*force/firstV.distance(secondV)));
     secondV.setDY((secondV.getDY()+SPRING_DAMPEN*displacey*force/firstV.distance(secondV)));
     secondV.setDZ((secondV.getDZ()+SPRING_DAMPEN*displacez*force/firstV.distance(secondV)));
+    firstV.reactXWall();
+    firstV.reactYWall();
+    firstV.reactZWall();
+
+    secondV.reactXWall();
+    secondV.reactYWall();
+    secondV.reactZWall();
   }
 }

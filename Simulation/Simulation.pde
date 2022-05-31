@@ -1,6 +1,6 @@
 static float VertexRadius = 5;
-static float SPRING_DAMPEN = 0.1;
-static float SPRING_CONSTANT = 0.15;
+static float SPRING_DAMPEN = .01;
+static float SPRING_CONSTANT = 0.1;
 static float GRAVITY = .35;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;
@@ -24,7 +24,7 @@ void setup() {
   v1 = new Vertex(300, 300, 0, 10, 0, 0);
   //bodies.add(new SoftBody(300, 300, 0, 100, 0, 50, 0));
 
-  bodies.add(new SoftBody(600, 200, 0, 50, 0, 0, 1));
+  bodies.add(new SoftBody(600, 200, 0, 50, 10, 5, 0));
   //v1 = new Vertex(300, 300, 0, 10, 10, 0);
   //v2 = new Vertex(200, 200, 0, 0, 0, 0);
   //v3 = new Vertex(400, 200, 0, 0, 0, 0);

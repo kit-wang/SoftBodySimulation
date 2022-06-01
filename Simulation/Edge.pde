@@ -1,6 +1,6 @@
 public class Edge {
-  private Vertex firstV;
-  private Vertex secondV;
+  public Vertex firstV;
+  public Vertex secondV;
   private SoftBody body;
 
   private float length;
@@ -23,7 +23,20 @@ public class Edge {
   public float getLength() {
     return length;
   }
-
+  
+  public void react() {
+    float slope = (firstV.getY() - secondV.getY())/(firstV.getX() - secondV.getX());
+    if ((-firstV.getX()+firstV.getY()-200)*(-secondV.getX()+secondV.getY()-200) < 0){
+      float xInt = (200-firstV.getY()+firstV.getX()*slope)/(slope +1);
+      if ( xInt> 400){
+        firstV.setY(firstV.getY()+xInt-400);
+        firstV.setX(firstV.getX()-xInt+400);
+        secondV.setY(secondV.getY()+xInt-400);
+        secondV.setX(secondV.getX()-xInt+400);
+      }
+    }
+  }
+  
   public void pull() {
     //calculate force of the spring using equation F = kl
     float force = SPRING_CONSTANT*(firstV.distance(secondV) - length);

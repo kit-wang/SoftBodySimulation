@@ -19,10 +19,10 @@ Edge e1;
 void setup() {
   size(800, 800, P3D);
   frameRate(30);
-  //bodies.add(new SoftBody(600, 200, 0, 50, 5, 5, 0));
-  v1 = new Vertex(600, 200, 0, 0, 0, 0);
-  v2 = new Vertex(500, 400, 0, 0, 0, 0);
-  e1 = new Edge(v1, v2, 282);
+  bodies.add(new SoftBody(600, 200, 0, 50, 5, 5, 0));
+  //v1 = new Vertex(100, 600, 0, 0, 0, 0);
+  //v2 = new Vertex(500, 400, 0, 0, 0, 0);
+  //e1 = new Edge(v1, v2, 282);
 }
 
 void draw() {
@@ -46,17 +46,17 @@ void draw() {
     // line(400, 500, i, 700, 200, i);
     line(100, 300, i, 400, 600, i);
   }
-  //if (!stop) {
-  //  bodies.get(0).react();
-  //  bodies.get(0).display();
-  //}
   if (!stop) {
-    e1.react();
-    e1.pull();
-    v1.move();
-    v2.move();
+    bodies.get(0).react();
+    bodies.get(0).display();
   }
-  e1.display();
+  //if (!stop) {
+  //  e1.react();
+  //  e1.pull();
+  //  v1.move();
+  //  v2.move();
+  //}
+  //e1.display();
 }
 
 void mouseClicked() {

@@ -12,17 +12,10 @@ public class Edge {
 
     length = len;
   }
-  
-  public Edge(Vertex v1, Vertex v2, float len) {
-    firstV = v1; 
-    secondV = v2;
-    length = len;
-  }
 
   public void display() {
 
-    //stroke((255.0/100.0)*(firstV.getZ()+secondV.getZ() - 2*body.zAvg+100)*.5);
-    stroke(0);
+    stroke((255.0/100.0)*(firstV.getZ()+secondV.getZ() - 2*body.zAvg+100)*.5);
     //line from one endpoint to the other
     line(firstV.getX(), firstV.getY(), firstV.getZ(), secondV.getX(), secondV.getY(), secondV.getZ());
   }
@@ -34,14 +27,12 @@ public class Edge {
   public void react() {
     float slope = (firstV.getY() - secondV.getY())/(firstV.getX() - secondV.getX());
     if ((-firstV.getX()+firstV.getY()-200)*(-secondV.getX()+secondV.getY()-200) < 0){
-      float xInt = (200-firstV.getY()+firstV.getX()*slope)/(slope+1);
+      float xInt = (200-firstV.getY()+firstV.getX()*slope)/(slope-1);
       if ( xInt< 400){
-        println(xInt);
-        stop = true;
-        firstV.setY(firstV.getY()+xInt-400);
-        firstV.setX(firstV.getX()-xInt+400);
-        secondV.setY(secondV.getY()+xInt-400);
-        secondV.setX(secondV.getX()-xInt+400);
+        firstV.setY(firstV.getY()-xInt+400);
+        firstV.setX(firstV.getX()+xInt-400);
+        secondV.setY(secondV.getY()-xInt+400);
+        secondV.setX(secondV.getX()+xInt-400);
       }
     }
   }

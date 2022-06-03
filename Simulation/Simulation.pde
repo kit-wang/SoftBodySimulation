@@ -13,9 +13,6 @@ Vertex v1;
 Vertex v2;
 Edge e1;
 
-
-
-
 void setup() {
   size(800, 800, P3D);
   frameRate(30);
@@ -60,4 +57,5 @@ void draw() {
 }
 
 void mouseClicked() {
+  
 }

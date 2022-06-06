@@ -5,6 +5,7 @@ public class SoftBody {
   //private ArrayList<Edge> boundaryE = new ArrayList<Edge>();
   public float zAvg;
   private float zCounter;
+  private Vertex center;
 
   public SoftBody(float x, float y, float z, float radius, float xVel, float yVel, float zVel) {
     float distSq;

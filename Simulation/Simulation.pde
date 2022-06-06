@@ -1,6 +1,6 @@
 static float VertexRadius = 5;
-static float SPRING_DAMPEN = .01;
-static float SPRING_CONSTANT = 0.1;
+static float SPRING_DAMPEN = 1;
+static float SPRING_CONSTANT = 0.001;
 static float GRAVITY = .4;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;
@@ -12,9 +12,6 @@ Boolean stop = false;
 Vertex v1;
 Vertex v2;
 Edge e1;
-
-
-
 
 void setup() {
   size(800, 800, P3D);
@@ -60,4 +57,5 @@ void draw() {
 }
 
 void mouseClicked() {
+  
 }

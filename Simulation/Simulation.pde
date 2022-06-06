@@ -5,16 +5,17 @@ static float GRAVITY = .4;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;
 static int mode = EDGE_MODE;
-public ArrayList<SoftBody> bodies = new ArrayList<SoftBody>();
+public SoftBody body;
 public boolean Gravity = true;
 public color VColor = color(0);
 Boolean stop = false;
+public float xAvg, yAvg, zAvg;
 
 
 void setup() {
   size(800, 800, P3D);
   frameRate(30);
-  bodies.add(new SoftBody(600, 200, 0, 50, 5, 5, 0));
+  body = new SoftBody(600, 200, 0, 50, 5, 5, 0);
 }
 
 void draw() {
@@ -37,10 +38,11 @@ void draw() {
     line(400, 500, i, 700, 200, i);
   }
   if (!stop) {
-    bodies.get(0).react();
-    bodies.get(0).display();
+    body.react();
+    body.display();
   }
 }
 
 void mouseClicked() {
+  body.move(mouseX, mouseY);
 }

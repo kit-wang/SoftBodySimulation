@@ -1,21 +1,19 @@
 public class Edge {
   private Vertex firstV;
   private Vertex secondV;
-  private SoftBody body;
 
   private float length;
 
-  public Edge(Vertex v1, Vertex v2, float len, SoftBody shell) {
+  public Edge(Vertex v1, Vertex v2, float len) {
     firstV = v1; 
     secondV = v2;
-    body = shell;
 
     length = len;
   }
 
   public void display() {
 
-    stroke((255.0/100.0)*(firstV.getZ()+secondV.getZ() - 2*body.zAvg+100)*.5);
+    stroke((255.0/100.0)*(firstV.getZ()+secondV.getZ() - 2*zAvg+100)*.5);
     //line from one endpoint to the other
     line(firstV.getX(), firstV.getY(), firstV.getZ(), secondV.getX(), secondV.getY(), secondV.getZ());
   }

@@ -1,6 +1,6 @@
 public class Edge {
-  public Vertex firstV;
-  public Vertex secondV;
+  private Vertex firstV;
+  private Vertex secondV;
   private SoftBody body;
 
   private float length;
@@ -23,20 +23,7 @@ public class Edge {
   public float getLength() {
     return length;
   }
-  
-  public void react() {
-    float slope = (firstV.getY() - secondV.getY())/(firstV.getX() - secondV.getX());
-    if ((-firstV.getX()+firstV.getY()-200)*(-secondV.getX()+secondV.getY()-200) < 0){
-      float xInt = (200-firstV.getY()+firstV.getX()*slope)/(slope-1);
-      if ( xInt< 400){
-        firstV.setY(firstV.getY()-xInt+400);
-        firstV.setX(firstV.getX()+xInt-400);
-        secondV.setY(secondV.getY()-xInt+400);
-        secondV.setX(secondV.getX()+xInt-400);
-      }
-    }
-  }
-  
+
   public void pull() {
     //calculate force of the spring using equation F = kl
     float force = SPRING_CONSTANT*(firstV.distance(secondV) - length);
@@ -48,13 +35,13 @@ public class Edge {
 
     //change velocities for each based on the force applied by the spring in each direction
     //velocity for each direction gets changed by the force scaled by the proportion of the directional displacement out of the total distance
-    firstV.setDX(SPRING_DAMPEN*(firstV.getDX()-displacex*force/firstV.distance(secondV)));
-    firstV.setDY(SPRING_DAMPEN*(firstV.getDY()-SPRING_DAMPEN*displacey*force/firstV.distance(secondV)));
-    firstV.setDZ(SPRING_DAMPEN*(firstV.getDZ()-SPRING_DAMPEN*displacez*force/firstV.distance(secondV)));
+    firstV.setDX((firstV.getDX()-SPRING_DAMPEN*displacex*force/firstV.distance(secondV)));
+    firstV.setDY((firstV.getDY()-SPRING_DAMPEN*displacey*force/firstV.distance(secondV)));
+    firstV.setDZ((firstV.getDZ()-SPRING_DAMPEN*displacez*force/firstV.distance(secondV)));
 
-    secondV.setDX(SPRING_DAMPEN*(secondV.getDX()+SPRING_DAMPEN*displacex*force/firstV.distance(secondV)));
-    secondV.setDY(SPRING_DAMPEN*(secondV.getDY()+SPRING_DAMPEN*displacey*force/firstV.distance(secondV)));
-    secondV.setDZ(SPRING_DAMPEN*(secondV.getDZ()+SPRING_DAMPEN*displacez*force/firstV.distance(secondV)));
+    secondV.setDX((secondV.getDX()+SPRING_DAMPEN*displacex*force/firstV.distance(secondV)));
+    secondV.setDY((secondV.getDY()+SPRING_DAMPEN*displacey*force/firstV.distance(secondV)));
+    secondV.setDZ((secondV.getDZ()+SPRING_DAMPEN*displacez*force/firstV.distance(secondV)));
     firstV.reactXWall();
     firstV.reactYWall();
     firstV.reactZWall();

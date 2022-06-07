@@ -1,6 +1,6 @@
 static float VertexRadius = 5;
 static float SPRING_DAMPEN = .01;
-static float SPRING_CONSTANT = 0.1;
+static float SPRING_CONSTANT = 0.075;
 static float GRAVITY = .4;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;
@@ -38,7 +38,6 @@ void draw() {
   line(100, 700, -150, 100, 700, 150);
   for (int i = -150; i <= 150; i+=10) {
     k = (i+200.0)/400;
-    println(k);
     stroke(252*k, 3*k, 152*k);
     line(400, 500, i, 700, 200, i);
   }
@@ -55,4 +54,10 @@ void mousePressed() {
 
 void mouseReleased(){
   mouseDown = false;
+}
+
+void keyPressed(){
+  if (key == ' '){
+    mode = (mode + 1)%2;
+  }
 }

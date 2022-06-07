@@ -12,8 +12,10 @@ public class Edge {
   }
 
   public void display() {
-
-    stroke((255.0/100.0)*(firstV.getZ()+secondV.getZ() - 2*zAvg+100)*.5);
+    float xCol = (255.0/100.0)*(firstV.getX()+secondV.getX() - 2*xAvg+100)*.5;
+    float yCol = (255.0/100.0)*(firstV.getY()+secondV.getY() - 2*yAvg+100)*.5;
+    float zCol = (255.0/100.0)*(firstV.getZ()+secondV.getZ() - 2*zAvg+100)*.5;
+    stroke(xCol, yCol, zCol);
     //line from one endpoint to the other
     line(firstV.getX(), firstV.getY(), firstV.getZ(), secondV.getX(), secondV.getY(), secondV.getZ());
   }

@@ -15,7 +15,7 @@ public class SoftBody {
           distSq = (i-x)*(i-x) + (j-y)*(j-y) + (k-z)*(k-z);
           //see if distance is within the ball, but not near the boundary, and add to the ArrayList of vertices
           if (sqrt(distSq) <= radius -25*sqrt(3)+1) {
-            vertices.add(new Vertex(i, j, k, xVel, yVel, zVel));
+            //vertices.add(new Vertex(i, j, k, xVel, yVel, zVel));
             //otherwise if point is within the ball, but on the boundary, we add to the ArrayList
           } else if (sqrt(distSq) <= radius+1) {
 

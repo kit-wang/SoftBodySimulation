@@ -25,7 +25,7 @@ public class Edge {
   public void pull() {
     //calculate force of the spring using equation F = kl
     float force = SPRING_CONSTANT*(firstV.distance(secondV) - length);
-
+    if (firstV.distance(secondV)==0) return;
     //calculate differences in axial directions between the endpoints
     float displacex = (firstV.getX() - secondV.getX()) ;
     float displacey = (firstV.getY() - secondV.getY()) ;

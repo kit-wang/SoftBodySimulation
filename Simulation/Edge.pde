@@ -7,7 +7,6 @@ public class Edge {
   public Edge(Vertex v1, Vertex v2, float len) {
     firstV = v1; 
     secondV = v2;
-
     length = len;
   }
 

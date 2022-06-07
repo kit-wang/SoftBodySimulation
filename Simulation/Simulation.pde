@@ -13,13 +13,13 @@ public float xAvg, yAvg, zAvg;
 public boolean mouseDown = false;
 float k;
 float screen;
-
+Info info = new Info();
 
 void setup() {
   size(800, 800, P3D);
   frameRate(30);
-  body = new SoftBody(600, 200, 0, 50, 5, 5, 0);
   screen = 0;
+  body = new SoftBody(600, 200, 0, 50, 5, 5, 0);
 }
 
 void draw() {
@@ -63,13 +63,17 @@ void draw() {
     body.react();
     body.display();
   }
+  if (screen == 2){
+    info.display();
+  }
 }
 
 void mousePressed() {
-  if (screen == 0){
+  if (screen == 0||screen == 2) {
     screen = 1;
+  } else {
+    mouseDown = true;
   }
-  mouseDown = true;
 }
 
 void mouseReleased() {
@@ -79,5 +83,8 @@ void mouseReleased() {
 void keyPressed() {
   if (key == ' ') {
     mode = (mode + 1)%2;
+  }
+  if (key == 'i'){
+    screen = 2;
   }
 }

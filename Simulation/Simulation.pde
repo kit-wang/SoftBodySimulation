@@ -1,7 +1,7 @@
-static float VertexRadius = 5;
-static float SPRING_DAMPEN = .01;
-static float SPRING_CONSTANT = 0.075;
-static float GRAVITY = .4;
+static final float VertexRadius = 5;
+static final float SPRING_DAMPEN = .01;
+static float SPRING_CONSTANT = 0.1;
+static final float GRAVITY = .4;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;
 static int mode = EDGE_MODE;
@@ -12,52 +12,72 @@ Boolean stop = false;
 public float xAvg, yAvg, zAvg;
 public boolean mouseDown = false;
 float k;
+float screen;
 
 
 void setup() {
   size(800, 800, P3D);
   frameRate(30);
   body = new SoftBody(600, 200, 0, 50, 5, 5, 0);
+  screen = 0;
 }
 
 void draw() {
-  background(250);
-  stroke(0);
-  line(700, 100, -150, 700, 700, -150);
-  line(700, 700, -150, 100, 700, -150);
-  line(100, 100, -150, 700, 100, -150);
-  line(100, 100, -150, 100, 700, -150);
-  line(700, 100, 150, 700, 700, 150);
-  line(700, 700, 150, 100, 700, 150);
-  line(100, 100, 150, 700, 100, 150);
-  line(100, 100, 150, 100, 700, 150);
-  line(700, 100, 150, 700, 100, 150);
-  line(100, 100, -150, 100, 100, 150);
-  line(700, 700, -150, 700, 700, 150);
-  line(700, 100, -150, 700, 100, 150);
-  line(100, 700, -150, 100, 700, 150);
-  for (int i = -150; i <= 150; i+=10) {
-    k = (i+200.0)/400;
-    stroke(252*k, 3*k, 152*k);
-    line(400, 500, i, 700, 200, i);
+  if (screen == 0) {
+    background(116, 232, 116);
+    textSize(50);
+    fill(202, 83, 245);
+    textAlign(CENTER);
+    text("SoftBody Simulation", 400, 200);
+    textSize(35);
+    text("JuKtaposition", 400, 270);
+    textSize(20);
+    text("Click anywhere to start simulation", 400, 350);
+    text("Click 'i' for more information", 400, 400);
+    text("Kitty Wang and Jacob Paltrowitz", 400, 600);
   }
-  if (mouseDown){
-    body.move(xAvg+.1*(mouseX-xAvg), yAvg+.1*(mouseY-yAvg));
+  if (screen == 1) {
+    background(250);
+    stroke(0);
+    line(700, 100, -150, 700, 700, -150);
+    line(700, 700, -150, 100, 700, -150);
+    line(100, 100, -150, 700, 100, -150);
+    line(100, 100, -150, 100, 700, -150);
+    line(700, 100, 150, 700, 700, 150);
+    line(700, 700, 150, 100, 700, 150);
+    line(100, 100, 150, 700, 100, 150);
+    line(100, 100, 150, 100, 700, 150);
+    line(700, 100, 150, 700, 100, 150);
+    line(100, 100, -150, 100, 100, 150);
+    line(700, 700, -150, 700, 700, 150);
+    line(700, 100, -150, 700, 100, 150);
+    line(100, 700, -150, 100, 700, 150);
+    for (int i = -150; i <= 150; i+=10) {
+      k = (i+200.0)/400;
+      stroke(252*k, 3*k, 152*k);
+      line(400, 500, i, 700, 200, i);
+    }
+    if (mouseDown) {
+      body.move(xAvg+.1*(mouseX-xAvg), yAvg+.1*(mouseY-yAvg));
+    }
+    body.react();
+    body.display();
   }
-  body.react();
-  body.display();
 }
 
 void mousePressed() {
+  if (screen == 0){
+    screen = 1;
+  }
   mouseDown = true;
 }
 
-void mouseReleased(){
+void mouseReleased() {
   mouseDown = false;
 }
 
-void keyPressed(){
-  if (key == ' '){
+void keyPressed() {
+  if (key == ' ') {
     mode = (mode + 1)%2;
   }
 }

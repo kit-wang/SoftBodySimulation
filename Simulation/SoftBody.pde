@@ -30,7 +30,7 @@ public class SoftBody {
     for (int i = 0; i < vertices.size(); i++) {
       for (int j = i+1; j < vertices.size(); j++) {
         e = new Edge(vertices.get(i), vertices.get(j), vertices.get(i).distance(vertices.get(j))-1);
-        if (e.getLength() <= 45*sqrt(3)) {
+        if (e.getLength() <= 30*sqrt(3)) {
           edges.add(e);
         }
         if (boundary.contains(vertices.get(i)) && boundary.contains(vertices.get(j))) {

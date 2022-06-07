@@ -4,6 +4,7 @@ public class SoftBody {
   private ArrayList<Vertex> boundary = new ArrayList<Vertex>();
   private ArrayList<Edge> boundaryE = new ArrayList<Edge>();
   private float xCounter, yCounter, zCounter;
+  private float malleability;
 
   public SoftBody(float x, float y, float z, float radius, float xVel, float yVel, float zVel) {
     float distSq;
@@ -70,7 +71,10 @@ public class SoftBody {
     yAvg = yCounter/vertices.size();
     zAvg = zCounter/vertices.size();
   }
-
+  
+  public float getMalleability() {
+    return malleability; 
+  }
   public void move(float x, float y) {
     for (int i = 0; i < vertices.size(); i++) {
       vertices.get(i).setX(vertices.get(i).getX()+x-xAvg);

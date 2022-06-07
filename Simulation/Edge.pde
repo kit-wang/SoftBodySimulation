@@ -1,13 +1,14 @@
 public class Edge {
   private Vertex firstV;
   private Vertex secondV;
-
   private float length;
+  private float initialLength;
+  private float malleability = 1.5;
 
   public Edge(Vertex v1, Vertex v2, float len) {
     firstV = v1; 
     secondV = v2;
-
+    initialLength = len;
     length = len;
   }
 
@@ -22,6 +23,12 @@ public class Edge {
 
   public float getLength() {
     return length;
+  }
+  
+  public void keepCompact() {
+   if (length > initialLength * ) {
+      
+   }
   }
 
   public void pull() {

@@ -11,6 +11,7 @@ public color VColor = color(0);
 Boolean stop = false;
 public float xAvg, yAvg, zAvg;
 public boolean mouseDown = false;
+float k;
 
 
 void setup() {
@@ -36,6 +37,9 @@ void draw() {
   line(700, 100, -150, 700, 100, 150);
   line(100, 700, -150, 100, 700, 150);
   for (int i = -150; i <= 150; i+=10) {
+    k = (i+200.0)/400;
+    println(k);
+    stroke(252*k, 3*k, 152*k);
     line(400, 500, i, 700, 200, i);
   }
   if (mouseDown){

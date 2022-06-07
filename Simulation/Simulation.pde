@@ -10,6 +10,7 @@ public boolean Gravity = true;
 public color VColor = color(0);
 Boolean stop = false;
 public float xAvg, yAvg, zAvg;
+public boolean mouseDown = false;
 
 
 void setup() {
@@ -37,12 +38,17 @@ void draw() {
   for (int i = -150; i <= 150; i+=10) {
     line(400, 500, i, 700, 200, i);
   }
-  if (!stop) {
-    body.react();
-    body.display();
+  if (mouseDown){
+    body.move(xAvg+.1*(mouseX-xAvg), yAvg+.1*(mouseY-yAvg));
   }
+  body.react();
+  body.display();
 }
 
-void mouseClicked() {
-  body.move(mouseX, mouseY);
+void mousePressed() {
+  mouseDown = true;
+}
+
+void mouseReleased(){
+  mouseDown = false;
 }

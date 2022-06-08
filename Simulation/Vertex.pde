@@ -18,7 +18,10 @@ public class Vertex {
 
   public void display() {
     noStroke();
-    fill(VColor);
+    float xCol = (255.0/100.0)*(xPosition - xAvg+50);
+    float yCol = (255.0/100.0)*(yPosition - yAvg+50);
+    float zCol = (255.0/100.0)*(zPosition - zAvg+50);
+    fill(xCol, yCol, zCol);
     translate(0, 0, zPosition);
     circle(xPosition, yPosition, VertexRadius*2);
     translate(0, 0, -zPosition);
@@ -160,11 +163,12 @@ public class Vertex {
     reactXWall();
     reactYWall();
     reactZWall();
-    
-
     xPosition+=xVelocity;
     yPosition+=yVelocity;
     zPosition+=zVelocity;
     reactDiag1();
+    reactXWall();
+    reactYWall();
+    reactZWall();
   }
 }

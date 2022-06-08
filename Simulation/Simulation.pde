@@ -19,6 +19,9 @@ void setup() {
   size(800, 800, P3D);
   frameRate(30);
   screen = 0;
+  xAvg = 600;
+  yAvg = 200;
+  zAvg = 0;
   body = new SoftBody(600, 200, 0, 50, 5, 5, 0);
 }
 

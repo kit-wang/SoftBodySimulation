@@ -4,10 +4,11 @@ public class SoftBody {
   private ArrayList<Vertex> boundary = new ArrayList<Vertex>();
   private ArrayList<Edge> boundaryE = new ArrayList<Edge>();
   private float xCounter, yCounter, zCounter;
-  private float malleability;
+  private float radius;
 
   public SoftBody(float x, float y, float z, float radius, float xVel, float yVel, float zVel) {
     float distSq;
+    this.radius = radius;
     //loop over every position in the box centered at the body's center with side length 2*radius
     for (float i = x - radius; i < x + radius+1; i+=15) {
       for (float j = y-radius; j < y+radius+1; j+=15) {
@@ -63,6 +64,7 @@ public class SoftBody {
     zCounter = 0;
     for (int i = 0; i < vertices.size(); i++) {
       vertices.get(i).move();
+      vertices.get(i).contain(1.5*radius);
       xCounter+=vertices.get(i).getX();
       yCounter+=vertices.get(i).getY();
       zCounter+=vertices.get(i).getZ();

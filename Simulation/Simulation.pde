@@ -1,7 +1,7 @@
 import controlP5.*;
 static final float VertexRadius = 5;
 static final float SPRING_DAMPEN = .01;
-static float SPRING_CONSTANT = 0.1;
+static float SPRING_CONSTANT = 1;
 static final float GRAVITY = .4;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;
@@ -15,12 +15,16 @@ public boolean mouseDown = false;
 float k;
 float screen;
 Info info = new Info();
+int time = 0;
 
 void setup() {
   size(800, 800, P3D);
   frameRate(30);
   screen = 0;
-  body = new SoftBody(600, 200, 0, 50, 5, 5, 0);
+  xAvg = 600;
+  yAvg = 200;
+  zAvg = 0;
+  body = new SoftBody(600, 200, 200, 50, 5, 5, 0);
 }
 
 void draw() {
@@ -58,11 +62,12 @@ void draw() {
       stroke(252*k, 3*k, 152*k);
       line(400, 500, i, 700, 200, i);
     }
-    if (mouseDown) {
+    if (mouseDown && time>30) {
       body.move(xAvg+.1*(mouseX-xAvg), yAvg+.1*(mouseY-yAvg));
     }
     body.react();
     body.display();
+    time++;
   }
   if (screen == 2){
     info.display();

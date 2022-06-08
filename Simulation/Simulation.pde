@@ -1,3 +1,4 @@
+import controlP5.*;
 static final float VertexRadius = 5;
 static final float SPRING_DAMPEN = .01;
 static float SPRING_CONSTANT = 1;

@@ -150,6 +150,8 @@ public class Vertex {
       xPosition=xAvg+(r/dist)*(xPosition - xAvg);
       yPosition=yAvg+(r/dist)*(yPosition - yAvg);
       zPosition=zAvg+(r/dist)*(zPosition - zAvg);
+      
+      // TODO: adjust velocities 
     }
   }
 

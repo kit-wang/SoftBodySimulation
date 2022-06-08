@@ -73,10 +73,7 @@ public class SoftBody {
     yAvg = yCounter/vertices.size();
     zAvg = zCounter/vertices.size();
   }
-  
-  public float getMalleability() {
-    return malleability; 
-  }
+
   public void move(float x, float y) {
     for (int i = 0; i < vertices.size(); i++) {
       vertices.get(i).setX(vertices.get(i).getX()+x-xAvg);

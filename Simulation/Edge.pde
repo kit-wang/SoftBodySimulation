@@ -21,12 +21,6 @@ public class Edge {
   public float getLength() {
     return length;
   }
-  
-  public void keepCompact() {
-   if (length > initialLength * ) {
-      
-   }
-  }
 
   public void pull() {
     //calculate force of the spring using equation F = kl

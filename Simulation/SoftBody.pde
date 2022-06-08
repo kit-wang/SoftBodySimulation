@@ -64,7 +64,7 @@ public class SoftBody {
     zCounter = 0;
     for (int i = 0; i < vertices.size(); i++) {
       vertices.get(i).move();
-      vertices.get(i).contain(1.5*radius);
+      vertices.get(i).contain(radius+10);
       xCounter+=vertices.get(i).getX();
       yCounter+=vertices.get(i).getY();
       zCounter+=vertices.get(i).getZ();

@@ -1,3 +1,4 @@
+
 static final float VertexRadius = 5;
 static final float SPRING_DAMPEN = .01;
 static float SPRING_CONSTANT = 1;
@@ -61,7 +62,7 @@ void draw() {
       stroke(252*k, 3*k, 152*k);
       line(400, 500, i, 700, 200, i);
     }
-    if (mouseDown && time>30) {
+    if (mouseDown && time>60) {
       body.move(xAvg+.1*(mouseX-xAvg), yAvg+.1*(mouseY-yAvg));
     }
     body.react();

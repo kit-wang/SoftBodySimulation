@@ -14,6 +14,7 @@ public boolean mouseDown = false;
 float k;
 float screen;
 Info info = new Info();
+int time = 0;
 
 void setup() {
   size(800, 800, P3D);
@@ -22,7 +23,7 @@ void setup() {
   xAvg = 600;
   yAvg = 200;
   zAvg = 0;
-  body = new SoftBody(600, 200, 0, 50, 5, 5, 0);
+  body = new SoftBody(600, 200, 200, 50, 5, 5, 0);
 }
 
 void draw() {
@@ -60,11 +61,12 @@ void draw() {
       stroke(252*k, 3*k, 152*k);
       line(400, 500, i, 700, 200, i);
     }
-    if (mouseDown) {
+    if (mouseDown && time>30) {
       body.move(xAvg+.1*(mouseX-xAvg), yAvg+.1*(mouseY-yAvg));
     }
     body.react();
     body.display();
+    time++;
   }
   if (screen == 2){
     info.display();

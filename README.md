@@ -1,6 +1,7 @@
 # SoftBodySimulation
 
 ## Installation & System Requirements
+Required Library: controlP5 for GUI widget interaction
 
 ## Description
 ### Brief Synopsis

@@ -82,8 +82,8 @@ void draw() {
 
 void mousePressed() {
   if (time > 0 && reset.isOn()) { 
-    body = new SoftBody(600, 200, 200, 50, 5, 5, 0);
-    xAvg = 600;
+    body = new SoftBody(400, 200, 200, 50, 5, 5, 0);
+    xAvg = 400;
     yAvg = 200;
     zAvg = 0;
   } else if (screen == 0||screen == 2) {

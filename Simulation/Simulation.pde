@@ -1,6 +1,6 @@
 import controlP5.*;
 static final float VertexRadius = 5;
-static final float SPRING_DAMPEN = .01;
+static final float SPRING_DAMPEN = .002;
 static float SPRING_CONSTANT = 1;
 static final float GRAVITY = .4;
 static final int EDGE_MODE = 1;
@@ -21,12 +21,12 @@ Button reset;
 
 void setup() {
   size(800, 800, P3D);
-  frameRate(30);
+  frameRate(35);
   screen = 0;
-  xAvg = 600;
+  xAvg = 400;
   yAvg = 200;
   zAvg = 0;
-  body = new SoftBody(600, 200, 200, 50, 5, 5, 0);
+  body = new SoftBody(400, 200, 200, 50, 5, 5, 0);
   controlP5 = new ControlP5(this);
 }
 

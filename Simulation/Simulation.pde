@@ -1,4 +1,4 @@
-
+import controlP5.*;
 static final float VertexRadius = 5;
 static final float SPRING_DAMPEN = .01;
 static float SPRING_CONSTANT = 1;
@@ -16,6 +16,8 @@ float k;
 float screen;
 Info info = new Info();
 int time = 0;
+ControlP5 controlP5;
+Button reset;
 
 void setup() {
   size(800, 800, P3D);
@@ -25,6 +27,7 @@ void setup() {
   yAvg = 200;
   zAvg = 0;
   body = new SoftBody(600, 200, 200, 50, 5, 5, 0);
+  controlP5 = new ControlP5(this);
 }
 
 void draw() {
@@ -42,6 +45,9 @@ void draw() {
     text("Kitty Wang and Jacob Paltrowitz", 400, 600);
   }
   if (screen == 1) {
+    if (time == 0) {
+      reset = new Button(controlP5, "Reset");
+    }
     background(250);
     stroke(0);
     line(700, 100, -150, 700, 700, -150);
@@ -69,13 +75,18 @@ void draw() {
     body.display();
     time++;
   }
-  if (screen == 2){
+  if (screen == 2) {
     info.display();
   }
 }
 
 void mousePressed() {
-  if (screen == 0||screen == 2) {
+  if (time > 0 && reset.isOn()) { 
+    body = new SoftBody(600, 200, 200, 50, 5, 5, 0);
+    xAvg = 600;
+    yAvg = 200;
+    zAvg = 0;
+  } else if (screen == 0||screen == 2) {
     screen = 1;
   } else {
     mouseDown = true;
@@ -90,7 +101,7 @@ void keyPressed() {
   if (key == ' ') {
     mode = (mode + 1)%2;
   }
-  if (key == 'i'){
+  if (key == 'i') {
     screen = 2;
   }
 }

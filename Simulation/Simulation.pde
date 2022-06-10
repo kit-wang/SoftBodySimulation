@@ -16,9 +16,11 @@ float k;
 float screen;
 Info info = new Info();
 int time = 0;
+ControlP5 cp5;
 
 void setup() {
   size(800, 800, P3D);
+  cp5 = new ControlP5(this);
   frameRate(30);
   screen = 0;
   xAvg = 600;
@@ -57,7 +59,7 @@ void draw() {
     line(700, 700, -150, 700, 700, 150);
     line(700, 100, -150, 700, 100, 150);
     line(100, 700, -150, 100, 700, 150);
-    for (int i = -150; i <= 150; i+=10) {
+    for (int i = -150; i <= 150; i+=1) {
       k = (i+200.0)/400;
       stroke(252*k, 3*k, 152*k);
       line(400, 500, i, 700, 200, i);

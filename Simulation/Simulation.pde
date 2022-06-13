@@ -18,6 +18,7 @@ Info info = new Info();
 int time = 0;
 ControlP5 controlP5;
 Button reset;
+int flag = 0;
 
 void setup() {
   size(800, 800, P3D);
@@ -63,6 +64,8 @@ void draw() {
     line(700, 700, -150, 700, 700, 150);
     line(700, 100, -150, 700, 100, 150);
     line(100, 700, -150, 100, 700, 150);
+
+    
     for (int i = -150; i <= 150; i+=10) {
       k = (i+200.0)/400;
       stroke(252*k, 3*k, 152*k);
@@ -86,7 +89,7 @@ void mousePressed() {
     xAvg = 400;
     yAvg = 200;
     zAvg = 0;
-    time = 0;
+    time = 1;
   } else if (screen == 0||screen == 2) {
     screen = 1;
   } else {
@@ -104,5 +107,8 @@ void keyPressed() {
   }
   if (key == 'i') {
     screen = 2;
+  }
+  if (key == 'p'){
+    flag= flag+1;
   }
 }

@@ -29,13 +29,22 @@ https://docs.google.com/document/d/1UYKS9-Bp7HBw1WUIw0KsM1lXloKazP6HbpHPUF0QfC0/
 05/29 - Jacob: I got working diagonal walls, with decent bouncing behavior.  
 05/30 - Jacob: I refined the look of the ball by adding more points in the ball. i also tried, unsuccessfully, to create another diagonal wall in a different location with different orientation.  
 05/30 - Kitty: I focused on resolving straying vertices and stabilizing the soft body as it reacts to the diagonal walls (WIP)
-05/31 - Jacob: I added a second wall with different orientation.
-06/01 - Jacob: Attempted to eliminate ball from simultaneously being on both sides of a wall (WIP).
-06/02 - Jacob: Failed attempt to eliminate issues and debug previous days work.
-06/03 - Jacob: Attempts to eliminate bugs from edge-wall interactions did not work.
-06/04 - Jacob: Rechecking all of the physics to make sure the problems are not the result of mistakes in spring physics. I did not find any issues.
-06/06 - Jacob: Reset back to demo stage and added mouse interactions to pull the ball.
-06/07 - Jacob: Colored edges based on x, y, and z position relative to the center of the ball. Added a front page and an info page. Added containment to prevent vertices from being too far from the center of the ball.
-06/08 - Jacob: fixed a bug with mouse interacting with the ball after first click.
-06/10 - Jacob: Added a reset button for the simulation.
-06/12 - Jacob: Checking functionality. 
+05/31 - Jacob: I added a second wall with different orientation.  
+06/01 - Jacob: Attempted to eliminate ball from simultaneously being on both sides of a wall (WIP).  
+06/01 - Kitty: I continued to work on fixing diagonal wall detection based on x, y, z positioning of adjacent boundary vertices.  
+06/02 - Jacob: Failed attempt to eliminate issues and debug previous days work.  
+06/02 - Kitty: Fine-tuned constants for a smoother behavior in the soft body.  
+06/03 - Jacob: Attempts to eliminate bugs from edge-wall interactions did not work.    
+06/03 - Kitty: I began to research alternative methods of maintaining the initial lattice structure and preventing rogue vertices; from there, I attempted to implement a mesh network between the vertices and edge length checking from a center of gravity.  
+06/04 - Jacob: Rechecking all of the physics to make sure the problems are not the result of mistakes in spring physics. I did not find any issues.  
+06/05 - Kitty: I attempted to implement basic length checking in edges, spikey behavior still persisting in the soft body.  
+06/06 - Jacob: Reset back to demo stage and added mouse interactions to pull the ball.  
+06/07 - Jacob: Colored edges based on x, y, and z position relative to the center of the ball. Added a front page and an info page. Added containment to prevent vertices from being too far from the center of the ball.  
+06/07 - Kitty: I added some mouse interaction with the soft body (drag and drop) -- result was very buggy.  
+06/08 - Jacob: fixed a bug with mouse interacting with the ball after first click.  
+06/08 - Kitty: Attached slider output to values of constants.  
+06/09 - Kitty: I worked on adding sliders to the GUI for resolving spikey behavior in the soft body.  
+06/10 - Jacob: Added a reset button for the simulation.  
+06/10 - Kitty: I attempted to resolve slider click and mouse drag conflict.  
+06/12 - Jacob: Checking functionality.  
+06/12 - Kitty: I finalized the GUI platform and addressed final issues in soft body behavior.

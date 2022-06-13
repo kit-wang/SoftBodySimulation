@@ -16,18 +16,18 @@ float k;
 float screen;
 Info info = new Info();
 int time = 0;
-ControlP5 controlP5;
+ControlP5 cp5;
 Button reset;
 
 void setup() {
   size(800, 800, P3D);
+  cp5 = new ControlP5(this);
   frameRate(30);
   screen = 0;
   xAvg = 600;
   yAvg = 200;
   zAvg = 0;
   body = new SoftBody(600, 200, 200, 50, 5, 5, 0);
-  controlP5 = new ControlP5(this);
 }
 
 void draw() {
@@ -43,10 +43,11 @@ void draw() {
     text("Click anywhere to start simulation", 400, 350);
     text("Click 'i' for more information", 400, 400);
     text("Kitty Wang and Jacob Paltrowitz", 400, 600);
+    cp5.addSlider("GRAVITY").setPosition(20,50).setRange(0, 20).setSize(20,100);
   }
   if (screen == 1) {
     if (time == 0) {
-      reset = new Button(controlP5, "Reset");
+      reset = new Button(cp5, "Reset");
     }
     background(250);
     stroke(0);
@@ -63,7 +64,7 @@ void draw() {
     line(700, 700, -150, 700, 700, 150);
     line(700, 100, -150, 700, 100, 150);
     line(100, 700, -150, 100, 700, 150);
-    for (int i = -150; i <= 150; i+=10) {
+    for (int i = -150; i <= 150; i+=1) {
       k = (i+200.0)/400;
       stroke(252*k, 3*k, 152*k);
       line(400, 500, i, 700, 200, i);

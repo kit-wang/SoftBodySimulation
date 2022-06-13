@@ -1,7 +1,7 @@
 import controlP5.*;
 static float VertexRadius = 5;
-static float SPRING_DAMPEN = .01;
-static float SPRING_CONSTANT = 1;
+static float SPRING_DAMPEN = .08;
+static float SPRING_CONSTANT = 0.06;
 static float GRAVITY = .4;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;
@@ -52,6 +52,7 @@ void draw() {
       buttonSetup();
       GRAVITY = grav.getValue();
       SPRING_DAMPEN = dampen.getValue();
+      SPRING_CONSTANT = springConstant.getValue();
     }
     background(250);
     stroke(0);
@@ -86,7 +87,7 @@ void draw() {
 }
 
 void mousePressed() {
-  if (time > 0 && reset.isOn()) { 
+  if (time > 0 && reset.isPressed()) { 
     body = new SoftBody(400, 200, 200, 50, 5, 5, 0);
     xAvg = 400;
     yAvg = 200;
@@ -109,13 +110,13 @@ void buttonSetup() {
   grav = new Slider(cp5, "GRAVITY");
   grav.setDefaultValue(0.4);
   grav.setPosition(30, 60);
-  grav.setRange(0, 20);
+  grav.setRange(0, 10);
   grav.setSize(30, 100);
   grav.setColorLabel(0);
   grav.setColorValue(0);
   dampen = new Slider(cp5, "DAMPENING");
   dampen.setScrollSensitivity(0.001);
-  dampen.setDefaultValue(0.01);
+  dampen.setDefaultValue(0.08);
   dampen.setPosition(85, 60);
   dampen.setRange(0.01, 0.1);
   dampen.setSize(30, 100);
@@ -124,7 +125,7 @@ void buttonSetup() {
   springConstant = new Slider(cp5, "SPRING_CONSTANT");
   springConstant.setPosition(140, 60);
   springConstant.setRange(0.01, 3);
-  springConstant.setDefaultValue(1);
+  springConstant.setDefaultValue(0.06);
   springConstant.setSize(30, 100);
   springConstant.setColorLabel(0);
   springConstant.setColorValue(0);

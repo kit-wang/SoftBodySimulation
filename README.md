@@ -29,4 +29,13 @@ https://docs.google.com/document/d/1UYKS9-Bp7HBw1WUIw0KsM1lXloKazP6HbpHPUF0QfC0/
 05/29 - Jacob: I got working diagonal walls, with decent bouncing behavior.  
 05/30 - Jacob: I refined the look of the ball by adding more points in the ball. i also tried, unsuccessfully, to create another diagonal wall in a different location with different orientation.  
 05/30 - Kitty: I focused on resolving straying vertices and stabilizing the soft body as it reacts to the diagonal walls (WIP)
-05/31 - Jacob: I added a second wall with different orientation. 
+05/31 - Jacob: I added a second wall with different orientation.
+06/01 - Jacob: Attempted to eliminate ball from simultaneously being on both sides of a wall (WIP).
+06/02 - Jacob: Failed attempt to eliminate issues and debug previous days work.
+06/03 - Jacob: Attempts to eliminate bugs from edge-wall interactions did not work.
+06/04 - Jacob: Rechecking all of the physics to make sure the problems are not the result of mistakes in spring physics. I did not find any issues.
+06/06 - Jacob: Reset back to demo stage and added mouse interactions to pull the ball.
+06/07 - Jacob: Colored edges based on x, y, and z position relative to the center of the ball. Added a front page and an info page. Added containment to prevent vertices from being too far from the center of the ball.
+06/08 - Jacob: fixed a bug with mouse interacting with the ball after first click.
+06/10 - Jacob: Added a reset button for the simulation.
+06/12 - Jacob: Checking functionality. 

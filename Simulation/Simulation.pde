@@ -43,6 +43,7 @@ void draw() {
     text("Click anywhere to start simulation", 400, 350);
     text("Click 'i' for more information", 400, 400);
     text("Kitty Wang and Jacob Paltrowitz", 400, 600);
+    cp5.addSlider("GRAVITY").setPosition(20,50).setRange(0, 20).setSize(20,100);
   }
   if (screen == 1) {
     if (time == 0) {

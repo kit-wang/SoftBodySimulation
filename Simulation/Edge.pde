@@ -1,21 +1,19 @@
 public class Edge {
   private Vertex firstV;
   private Vertex secondV;
-  private SoftBody body;
-
   private float length;
 
-  public Edge(Vertex v1, Vertex v2, float len, SoftBody shell) {
+  public Edge(Vertex v1, Vertex v2, float len) {
     firstV = v1; 
     secondV = v2;
-    body = shell;
-
     length = len;
   }
 
   public void display() {
-
-    stroke((255.0/100.0)*(firstV.getZ()+secondV.getZ() - 2*body.zAvg+100)*.5);
+    float xCol = (255.0/100.0)*(firstV.getX()+secondV.getX() - 2*xAvg+100)*.5;
+    float yCol = (255.0/100.0)*(firstV.getY()+secondV.getY() - 2*yAvg+100)*.5;
+    float zCol = (255.0/100.0)*(firstV.getZ()+secondV.getZ() - 2*zAvg+100)*.5;
+    stroke(xCol, yCol, zCol);
     //line from one endpoint to the other
     line(firstV.getX(), firstV.getY(), firstV.getZ(), secondV.getX(), secondV.getY(), secondV.getZ());
   }
@@ -27,7 +25,7 @@ public class Edge {
   public void pull() {
     //calculate force of the spring using equation F = kl
     float force = SPRING_CONSTANT*(firstV.distance(secondV) - length);
-
+    if (firstV.distance(secondV)==0) return;
     //calculate differences in axial directions between the endpoints
     float displacex = (firstV.getX() - secondV.getX()) ;
     float displacey = (firstV.getY() - secondV.getY()) ;

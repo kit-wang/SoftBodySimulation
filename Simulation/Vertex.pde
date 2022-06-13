@@ -18,7 +18,10 @@ public class Vertex {
 
   public void display() {
     noStroke();
-    fill(VColor);
+    float xCol = (255.0/100.0)*(xPosition - xAvg+50);
+    float yCol = (255.0/100.0)*(yPosition - yAvg+50);
+    float zCol = (255.0/100.0)*(zPosition - zAvg+50);
+    fill(xCol, yCol, zCol);
     translate(0, 0, zPosition);
     circle(xPosition, yPosition, VertexRadius*2);
     translate(0, 0, -zPosition);
@@ -77,12 +80,9 @@ public class Vertex {
     if (xPosition < VertexRadius+100) {
       xVelocity*=-.95;
       xPosition = VertexRadius+100;
-
-    }
-    else if (xPosition > 700 - VertexRadius) {
+    } else if (xPosition > 700 - VertexRadius) {
       xVelocity*=-.95;
       xPosition = abs(VertexRadius-700);
-
     }
   }
 
@@ -90,12 +90,9 @@ public class Vertex {
     if (yPosition < 100+VertexRadius) {
       yVelocity*=-.95;
       yPosition = VertexRadius+100;
-
-    }
-    else if (yPosition > 700 - VertexRadius) {
+    } else if (yPosition > 700 - VertexRadius) {
       yVelocity*=-.95;
       yPosition = abs(VertexRadius-700);
-
     }
   }
 
@@ -103,19 +100,16 @@ public class Vertex {
     if (zPosition < VertexRadius - 150) {
       zVelocity*=-.95;
       zPosition = VertexRadius -150;
-
-    }
-    else if (zPosition > 150 - VertexRadius) {
+    } else if (zPosition > 150 - VertexRadius) {
       zVelocity*=-.95;
       zPosition = abs(VertexRadius-150);
-
     }
   }
-  
+
   public void reactDiag1() {
     float dist = (xPosition + yPosition - 900)/sqrt(2);
     float prevDist = (xPosition - xVelocity + yPosition - yVelocity - 900)/sqrt(2);
-    if (xPosition > 400 && dist*prevDist < 0){
+    if (xPosition > 400 && dist*prevDist < 0) {
       //if (xVelocity < yVelocity){
       //  xPosition += dist/sqrt(2) - 2*VertexRadius/sqrt(2);
       //  yPosition += dist/sqrt(2) - 2*VertexRadius/sqrt(2);
@@ -130,7 +124,7 @@ public class Vertex {
       xVelocity = -hold;
     }
   }
-  
+
   //public void reactDiag2() {
   //  float dist = (-xPosition + yPosition - 200)/sqrt(2);
   //  float prevDist = (- xPosition + xVelocity + yPosition - yVelocity - 200)/sqrt(2);
@@ -150,8 +144,19 @@ public class Vertex {
   //  }
   //}
 
+  public void contain(float r) {
+    float dist = dist(xAvg, yAvg, zAvg, xPosition, yPosition, zPosition);
+    if (dist > r+1) {
+      xPosition=xAvg+(r/dist)*(xPosition - xAvg);
+      yPosition=yAvg+(r/dist)*(yPosition - yAvg);
+      zPosition=zAvg+(r/dist)*(zPosition - zAvg);
+      
+      // TODO: adjust velocities 
+    }
+  }
+
   public void move() {
-    
+
 
     if (Gravity) {
       yVelocity+=GRAVITY;
@@ -160,11 +165,12 @@ public class Vertex {
     reactXWall();
     reactYWall();
     reactZWall();
-    
-
     xPosition+=xVelocity;
     yPosition+=yVelocity;
     zPosition+=zVelocity;
     reactDiag1();
+    reactXWall();
+    reactYWall();
+    reactZWall();
   }
 }

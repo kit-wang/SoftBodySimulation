@@ -19,6 +19,8 @@ int time = 0;
 ControlP5 cp5;
 Button reset;
 Slider grav;
+Slider dampen;
+Slider springConstant;
 
 void setup() {
   size(800, 800, P3D);
@@ -49,6 +51,7 @@ void draw() {
     if (time == 0) {
       buttonSetup();
       GRAVITY = grav.getValue();
+      SPRING_DAMPEN = dampen.getValue();
     }
     background(250);
     stroke(0);
@@ -96,20 +99,35 @@ void mousePressed() {
 }
 
 boolean isMouseOverSliders() {
-  return (reset.isMouseOver() || grav.isMouseOver());
+  return (reset.isMouseOver() || grav.isMouseOver() || dampen.isMouseOver() || springConstant.isMouseOver());
 }
 
 void buttonSetup() {
   reset = new Button(cp5, "Reset");
+  reset.setSize(75, 25);
   reset.setPosition(30, 30);
   grav = new Slider(cp5, "GRAVITY");
   grav.setDefaultValue(0.4);
-  grav.setPosition(30,70);
+  grav.setPosition(30, 60);
   grav.setRange(0, 20);
-  grav.setSize(30,100);
+  grav.setSize(30, 100);
   grav.setColorLabel(0);
   grav.setColorValue(0);
-  
+  dampen = new Slider(cp5, "DAMPENING");
+  dampen.setScrollSensitivity(0.001);
+  dampen.setDefaultValue(0.01);
+  dampen.setPosition(85, 60);
+  dampen.setRange(0.01, 0.1);
+  dampen.setSize(30, 100);
+  dampen.setColorLabel(0);
+  dampen.setColorValue(0);
+  springConstant = new Slider(cp5, "SPRING_CONSTANT");
+  springConstant.setPosition(140, 60);
+  springConstant.setRange(0.01, 3);
+  springConstant.setDefaultValue(1);
+  springConstant.setSize(30, 100);
+  springConstant.setColorLabel(0);
+  springConstant.setColorValue(0);
 }
 
 void mouseReleased() {

@@ -1,8 +1,8 @@
 import controlP5.*;
-static final float VertexRadius = 5;
-static final float SPRING_DAMPEN = .01;
+static float VertexRadius = 5;
+static float SPRING_DAMPEN = .01;
 static float SPRING_CONSTANT = 1;
-static final float GRAVITY = .4;
+static float GRAVITY = .4;
 static final int EDGE_MODE = 1;
 static final int VERTEX_MODE = 0;
 static int mode = EDGE_MODE;
@@ -18,6 +18,7 @@ Info info = new Info();
 int time = 0;
 ControlP5 cp5;
 Button reset;
+Slider grav;
 
 void setup() {
   size(800, 800, P3D);
@@ -43,11 +44,11 @@ void draw() {
     text("Click anywhere to start simulation", 400, 350);
     text("Click 'i' for more information", 400, 400);
     text("Kitty Wang and Jacob Paltrowitz", 400, 600);
-    cp5.addSlider("GRAVITY").setPosition(20,50).setRange(0, 20).setSize(20,100);
   }
   if (screen == 1) {
     if (time == 0) {
-      reset = new Button(cp5, "Reset");
+      buttonSetup();
+      GRAVITY = grav.getValue();
     }
     background(250);
     stroke(0);
@@ -69,7 +70,7 @@ void draw() {
       stroke(252*k, 3*k, 152*k);
       line(400, 500, i, 700, 200, i);
     }
-    if (mouseDown && time>60) {
+    if (!(isMouseOverSliders()) && mouseDown && time>60) {
       body.move(xAvg+.1*(mouseX-xAvg), yAvg+.1*(mouseY-yAvg));
     }
     body.react();
@@ -92,6 +93,23 @@ void mousePressed() {
   } else {
     mouseDown = true;
   }
+}
+
+boolean isMouseOverSliders() {
+  return (reset.isMouseOver() || grav.isMouseOver());
+}
+
+void buttonSetup() {
+  reset = new Button(cp5, "Reset");
+  reset.setPosition(30, 30);
+  grav = new Slider(cp5, "GRAVITY");
+  grav.setDefaultValue(0.4);
+  grav.setPosition(30,70);
+  grav.setRange(0, 20);
+  grav.setSize(30,100);
+  grav.setColorLabel(0);
+  grav.setColorValue(0);
+  
 }
 
 void mouseReleased() {

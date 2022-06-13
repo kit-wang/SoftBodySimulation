@@ -35,7 +35,7 @@ void setup() {
 
 void draw() {
   if (screen == 0) {
-    background(0,15,11);
+    background(1, 50, 32);
     textSize(50);
     fill(255);
     textAlign(CENTER);

@@ -1,9 +1,9 @@
 public class Info {
   public void display() {
-    background(187, 185, 250);
+    background(11, 11, 69);
     fill(5, 2, 110);
-    textSize(20);
-    textAlign(LEFT);
+    textSize(18);
+    textAlign(CENTER);
     String info1 = "This project focuses on the simulation of a soft object as a network";
     String info2 = "of vertices connected by springs. You can use the space bar, ' ', to";
     String info3 = "toggle between Edge and Vertex form, changing the display accordingly";

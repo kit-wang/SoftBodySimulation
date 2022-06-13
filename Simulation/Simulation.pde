@@ -35,9 +35,9 @@ void setup() {
 
 void draw() {
   if (screen == 0) {
-    background(116, 232, 116);
+    background(0,15,11);
     textSize(50);
-    fill(202, 83, 245);
+    fill(255);
     textAlign(CENTER);
     text("SoftBody Simulation", 400, 200);
     textSize(35);
